@@ -8,22 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
-		1299888428114F3800E1CDE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888328114F3800E1CDE7 /* SceneDelegate.swift */; };
 		1299888628114F3800E1CDE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888528114F3800E1CDE7 /* ViewController.swift */; };
-		1299888928114F3800E1CDE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1299888728114F3800E1CDE7 /* Main.storyboard */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
-		1299888E28114F3900E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1299888C28114F3900E1CDE7 /* LaunchScreen.storyboard */; };
+		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1299888328114F3800E1CDE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1299888528114F3800E1CDE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1299888828114F3800E1CDE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1299888D28114F3900E1CDE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1299888F28114F3900E1CDE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12998895281168B800E1CDE7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +53,10 @@
 			isa = PBXGroup;
 			children = (
 				1299888128114F3800E1CDE7 /* AppDelegate.swift */,
-				1299888328114F3800E1CDE7 /* SceneDelegate.swift */,
 				1299888528114F3800E1CDE7 /* ViewController.swift */,
-				1299888728114F3800E1CDE7 /* Main.storyboard */,
 				1299888A28114F3900E1CDE7 /* Assets.xcassets */,
-				1299888C28114F3900E1CDE7 /* LaunchScreen.storyboard */,
 				1299888F28114F3900E1CDE7 /* Info.plist */,
+				12998895281168B800E1CDE7 /* LaunchScreen.storyboard */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -125,9 +119,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1299888E28114F3900E1CDE7 /* LaunchScreen.storyboard in Resources */,
+				12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */,
 				1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */,
-				1299888928114F3800E1CDE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,30 +133,10 @@
 			files = (
 				1299888628114F3800E1CDE7 /* ViewController.swift in Sources */,
 				1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */,
-				1299888428114F3800E1CDE7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		1299888728114F3800E1CDE7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1299888828114F3800E1CDE7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1299888C28114F3900E1CDE7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1299888D28114F3900E1CDE7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1299889028114F3900E1CDE7 /* Debug */ = {
@@ -287,6 +260,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URS928KMLL;
@@ -294,7 +268,7 @@
 				INFOPLIST_FILE = Weibo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -315,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = URS928KMLL;
@@ -322,7 +297,7 @@
 				INFOPLIST_FILE = Weibo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
