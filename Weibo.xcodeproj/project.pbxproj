@@ -8,18 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
-		1299888628114F3800E1CDE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888528114F3800E1CDE7 /* ViewController.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
+		129988A12811826500E1CDE7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A02811826500E1CDE7 /* MainViewController.swift */; };
+		129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A2281182A900E1CDE7 /* HomeViewController.swift */; };
+		129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A4281182C900E1CDE7 /* MessageViewController.swift */; };
+		129988A7281182EE00E1CDE7 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A6281182EE00E1CDE7 /* DiscoverViewController.swift */; };
+		129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A82811831800E1CDE7 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1299888528114F3800E1CDE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1299888F28114F3900E1CDE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12998895281168B800E1CDE7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		129988A02811826500E1CDE7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		129988A2281182A900E1CDE7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		129988A4281182C900E1CDE7 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		129988A6281182EE00E1CDE7 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		129988A82811831800E1CDE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +60,89 @@
 		1299888028114F3800E1CDE7 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				1299889A2811810F00E1CDE7 /* Tools */,
+				12998899281180FB00E1CDE7 /* Model */,
+				1299889828117F7500E1CDE7 /* ViewModel */,
+				1299889728117F6100E1CDE7 /* View */,
 				1299888128114F3800E1CDE7 /* AppDelegate.swift */,
-				1299888528114F3800E1CDE7 /* ViewController.swift */,
 				1299888A28114F3900E1CDE7 /* Assets.xcassets */,
 				1299888F28114F3900E1CDE7 /* Info.plist */,
 				12998895281168B800E1CDE7 /* LaunchScreen.storyboard */,
 			);
 			path = Weibo;
+			sourceTree = "<group>";
+		};
+		1299889728117F6100E1CDE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1299889F2811818800E1CDE7 /* Profile */,
+				1299889E2811816D00E1CDE7 /* Discover */,
+				1299889D2811814700E1CDE7 /* Message */,
+				1299889C2811813900E1CDE7 /* Home */,
+				1299889B2811812C00E1CDE7 /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1299889828117F7500E1CDE7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		12998899281180FB00E1CDE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1299889A2811810F00E1CDE7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		1299889B2811812C00E1CDE7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				129988A02811826500E1CDE7 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1299889C2811813900E1CDE7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				129988A2281182A900E1CDE7 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1299889D2811814700E1CDE7 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				129988A4281182C900E1CDE7 /* MessageViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		1299889E2811816D00E1CDE7 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				129988A6281182EE00E1CDE7 /* DiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		1299889F2811818800E1CDE7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				129988A82811831800E1CDE7 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +215,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1299888628114F3800E1CDE7 /* ViewController.swift in Sources */,
+				129988A12811826500E1CDE7 /* MainViewController.swift in Sources */,
 				1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */,
+				129988A7281182EE00E1CDE7 /* DiscoverViewController.swift in Sources */,
+				129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */,
+				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
+				129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
