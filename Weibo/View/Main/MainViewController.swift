@@ -45,7 +45,8 @@ class MainViewController: UITabBarController {
 //    } ()
 }
 
-// MARK: -设置界面
+// MARK: 设置界面
+// extension类似OC中的分类, 分类中不能定义存储性属性
 extension MainViewController {
     /// 设置新建微博按钮
     private func setupComposedButton() {

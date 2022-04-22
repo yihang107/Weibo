@@ -14,11 +14,25 @@ class VisitorView: UIView {
         messageLabel.text = title
         // 如果图片为nil 说明是首页
         guard let imgName = imageName else {
+            startRoll()
             return
         }
         
         iconView.image = UIImage.init(named: imgName)
         loadRoundView.isHidden = true
+    }
+    
+    /// 开启转轮动画
+    private func startRoll() {
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.toValue = 2 * Double.pi
+        animation.repeatCount = MAXFLOAT
+        animation.duration = 10
+        // 不断重复 切换到桌面 切换到其他界面
+        // 动画绑定的图层对应的视图被销毁 动画会自动销毁
+        animation.isRemovedOnCompletion = false
+        // 添加到图层
+        loadRoundView.layer.add(animation, forKey: nil)
     }
     // MARK: 构造函数
     // initWithFrame是UIView的制定构造函数
@@ -40,33 +54,38 @@ class VisitorView: UIView {
     }
     
     // MARK: 懒加载控件
-    private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: "visitor_home_house"))
-    private lazy var loadRoundView: UIImageView = UIImageView(image: UIImage(named: "visitor_round"))
-    private lazy var messageLabel: UILabel = {
-        let label = UILabel()
-        label.text = "关注一些人, 回这里看看有什么事"
-        label.textColor = UIColor.darkGray
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
-        label.textAlignment = NSTextAlignment.center
-        return label
-    } ()
-    private lazy var registerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(" 注册 ", for: UIControl.State.normal)
-        button.setTitleColor(UIColor.orange, for: UIControl.State.normal)
-        button.backgroundColor = UIColor.white
-        button.layer.cornerRadius = 10
-        return button
-    } ()
-    private lazy var loginButon: UIButton = {
-        let button = UIButton()
-        button.setTitle(" 登录 ", for: UIControl.State.normal)
-        button.setTitleColor(UIColor.gray, for: UIControl.State.normal)
-        button.backgroundColor = UIColor.white
-        button.layer.cornerRadius = 10
-        return button
-    } ()
+    private lazy var iconView: UIImageView = UIImageView(imgName: "visitor_home_house")
+    private lazy var loadRoundView: UIImageView = UIImageView(imgName:"visitor_round")
+//    private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: "visitor_home_house"))
+//    private lazy var loadRoundView: UIImageView = UIImageView(image: UIImage(named: "visitor_round"))
+    private lazy var messageLabel: UILabel = UILabel(title: "关注一些人,回这里看看有什么事")
+//    private lazy var messageLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "关注一些人, 回这里看看有什么事"
+//        label.textColor = UIColor.darkGray
+//        label.font = UIFont.systemFont(ofSize: 14)
+//        label.numberOfLines = 0
+//        label.textAlignment = NSTextAlignment.center
+//        return label
+//    } ()
+    private lazy var registerButton: UIButton = UIButton(title: "注册", color: UIColor.orange)
+    private lazy var loginButon: UIButton = UIButton(title: "登录", color: UIColor.gray)
+//    private lazy var registerButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle(" 注册 ", for: UIControl.State.normal)
+//        button.setTitleColor(UIColor.orange, for: UIControl.State.normal)
+//        button.backgroundColor = UIColor.white
+//        button.layer.cornerRadius = 10
+//        return button
+//    } ()
+//    private lazy var loginButon: UIButton = {
+//        let button = UIButton()
+//        button.setTitle(" 登录 ", for: UIControl.State.normal)
+//        button.setTitleColor(UIColor.gray, for: UIControl.State.normal)
+//        button.backgroundColor = UIColor.white
+//        button.layer.cornerRadius = 10
+//        return button
+//    } ()
 
 }
 

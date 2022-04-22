@@ -19,4 +19,12 @@ extension UIButton {
         setBackgroundImage(UIImage(named: bgImageName + "_highlighted"), for: UIControl.State.highlighted)
         sizeToFit()
     }
+    
+    convenience init(title: String, color: UIColor) {
+        self.init()
+        setTitle(title, for: UIControl.State.normal)
+        setTitleColor(color, for: UIControl.State.normal)
+        backgroundColor = UIColor.white
+        layer.cornerRadius = 10
+    }
 }

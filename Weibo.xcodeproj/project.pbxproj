@@ -18,6 +18,8 @@
 		129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988AB2812613B00E1CDE7 /* UIButton+Extension.swift */; };
 		129988AF28126AF400E1CDE7 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988AE28126AF400E1CDE7 /* VisitorViewController.swift */; };
 		129988B128127B6700E1CDE7 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988B028127B6700E1CDE7 /* VisitorView.swift */; };
+		129988D82812AFD400E1CDE7 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */; };
+		129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		129988AB2812613B00E1CDE7 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		129988AE28126AF400E1CDE7 /* VisitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
 		129988B028127B6700E1CDE7 /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				129988AB2812613B00E1CDE7 /* UIButton+Extension.swift */,
+				129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */,
+				129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -242,10 +248,12 @@
 			files = (
 				129988A12811826500E1CDE7 /* MainViewController.swift in Sources */,
 				1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */,
+				129988D82812AFD400E1CDE7 /* UILabel+Extension.swift in Sources */,
 				129988A7281182EE00E1CDE7 /* DiscoverViewController.swift in Sources */,
 				129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */,
 				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
 				129988AF28126AF400E1CDE7 /* VisitorViewController.swift in Sources */,
+				129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */,
 				129988B128127B6700E1CDE7 /* VisitorView.swift in Sources */,
 				129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */,
 				129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */,
