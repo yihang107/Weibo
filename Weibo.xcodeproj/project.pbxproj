@@ -20,6 +20,7 @@
 		129988B128127B6700E1CDE7 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988B028127B6700E1CDE7 /* VisitorView.swift */; };
 		129988D82812AFD400E1CDE7 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */; };
 		129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */; };
+		129988DC2812BCF600E1CDE7 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988DB2812BCF600E1CDE7 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		129988B028127B6700E1CDE7 /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		129988DB2812BCF600E1CDE7 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				129988AA281260F600E1CDE7 /* Extension */,
+				129988DB2812BCF600E1CDE7 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */,
 				129988D82812AFD400E1CDE7 /* UILabel+Extension.swift in Sources */,
 				129988A7281182EE00E1CDE7 /* DiscoverViewController.swift in Sources */,
+				129988DC2812BCF600E1CDE7 /* Common.swift in Sources */,
 				129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */,
 				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
 				129988AF28126AF400E1CDE7 /* VisitorViewController.swift in Sources */,

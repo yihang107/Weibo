@@ -21,16 +21,19 @@ class VisitorViewController: UITableViewController {
     private func setupVisitorView() {
         super.loadView()
         visitorView = VisitorView()
+        visitorView?.delegate = self
         view = visitorView
-//        view.backgroundColor = UIColor.orange
+        
+        // 设置导航栏按钮
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.visitorViewRegisterClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.visitorViewLoginClick))
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         visitorView?.setupInfo(imageName: nil, title: "关注一些人, 回这里看看有什么事")
     }
-
-//    // MARK: - Table view data source
-
+    
+    // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -41,4 +44,18 @@ class VisitorViewController: UITableViewController {
         return 1
     }
 
+}
+
+
+// MARK: 访客视图监听方法
+extension VisitorViewController: VisitorViewDelegate {
+    ///  注册
+    @objc func visitorViewRegisterClick() {
+        
+    }
+    
+    /// 登录
+    @objc func visitorViewLoginClick() {
+        
+    }
 }

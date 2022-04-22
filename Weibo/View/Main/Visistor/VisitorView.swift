@@ -7,8 +7,30 @@
 
 import UIKit
 
+
+// 代理 block NSNotification KVO target
+/// 访客视图的协议
+protocol VisitorViewDelegate: NSObjectProtocol {
+    /// 注册
+    func visitorViewRegisterClick()
+    /// 登录
+    func visitorViewLoginClick()
+}
+
+
 /// 访客视图 - 处理用户未登陆的界面显示
 class VisitorView: UIView {
+    /// 代理
+    weak var delegate: VisitorViewDelegate?
+    
+    // MARK: 监听方法
+    @objc private func clickLogin() {
+        delegate?.visitorViewLoginClick()
+    }
+    
+    @objc private func clickRegister() {
+        delegate?.visitorViewRegisterClick()
+    }
     // MARK: 设置视图信息
     func setupInfo(imageName: String?, title: String) {
         messageLabel.text = title
@@ -135,5 +157,9 @@ extension VisitorView {
         addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 30))
         // 通过VFL设置
 //        addConstraint(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[login]-0-|", options: [], metrics: nil, views: ["login": loginButon ]))
+        
+        // 添加监听方法
+        registerButton.addTarget(self, action: #selector(self.clickRegister), for: UIControl.Event.touchUpInside)
+        registerButton.addTarget(self, action: #selector(self.clickLogin), for: UIControl.Event.touchUpInside)
     }
 }
