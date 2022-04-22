@@ -9,6 +9,14 @@ import UIKit
 
 class MainViewController: UITabBarController {
 
+    // MARK: 监听方法
+    // 只使用private 运行循环将无法正确发送消息 导致崩溃
+    // 如果使用@objc修饰符号 可以保证运行循环能够发送此消息, 即使函数被标记为private
+    /// 点击撰写按钮
+    @objc private func clickComposeButton() {
+        print("点我了")
+    }
+    // MARK: 视图生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +26,7 @@ class MainViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBar.backgroundColor = UIColor.white
         tabBar.bringSubviewToFront(composedButton)
     }
     
@@ -38,7 +47,7 @@ class MainViewController: UITabBarController {
 
 // MARK: -设置界面
 extension MainViewController {
-    // 设置新建微博按钮
+    /// 设置新建微博按钮
     private func setupComposedButton() {
         //  1. 添加按钮
         tabBar.addSubview(composedButton)
@@ -47,6 +56,9 @@ extension MainViewController {
         let count = children.count
         let w = tabBar.bounds.width / CGFloat(count)
         composedButton.frame = CGRect.init(x: w * 2, y: -15, width: w, height: w)
+        
+        // 3. 添加监听按钮
+        composedButton.addTarget(self, action: #selector(self.clickComposeButton), for: UIControl.Event.touchUpInside)
     }
  
     
@@ -62,12 +74,11 @@ extension MainViewController {
         
     }
     
+    /// 添加子控制器
     private func addChildViewController(vc: UIViewController, title: String, imageName: String) {
-        let vc = HomeViewController()
         // 由内至外设置 vc -> nav/navbar
         vc.title = title
         vc.tabBarItem.image = UIImage(named: imageName)
-        
         let navc = UINavigationController(rootViewController: vc)
         addChild(navc)
     }

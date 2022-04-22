@@ -7,16 +7,11 @@
 
 import UIKit
 
-class ProfileViewController: UITableViewController {
+class ProfileViewController: VisitorViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        visitorView?.setupInfo(imageName: "visitor_profile", title: "登录后, 你的微博、相册、个人资料会显示在这里, 展示给别人")
     }
 
     // MARK: - Table view data source
