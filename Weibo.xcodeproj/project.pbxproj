@@ -15,6 +15,7 @@
 		129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A4281182C900E1CDE7 /* MessageViewController.swift */; };
 		129988A7281182EE00E1CDE7 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A6281182EE00E1CDE7 /* DiscoverViewController.swift */; };
 		129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988A82811831800E1CDE7 /* ProfileViewController.swift */; };
+		129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988AB2812613B00E1CDE7 /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		129988A4281182C900E1CDE7 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		129988A6281182EE00E1CDE7 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		129988A82811831800E1CDE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		129988AB2812613B00E1CDE7 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		1299889A2811810F00E1CDE7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				129988AA281260F600E1CDE7 /* Extension */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -143,6 +146,14 @@
 				129988A82811831800E1CDE7 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		129988AA281260F600E1CDE7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				129988AB2812613B00E1CDE7 /* UIButton+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 				129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */,
 				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
 				129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */,
+				129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

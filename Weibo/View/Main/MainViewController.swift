@@ -22,15 +22,18 @@ class MainViewController: UITabBarController {
     }
     
     // MARK: - 懒加载控件
-    private lazy var composedButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "tabbar_compose_orange"), for: UIControl.State.normal)
-        button.setImage(UIImage(named: ""), for: UIControl.State.highlighted)
-        button.setBackgroundImage(UIImage(named: ""), for: UIControl.State.normal)
-        button.setBackgroundImage(UIImage(named: ""), for: UIControl.State.highlighted)
-        button.sizeToFit()
-        return button
-    } ()
+    private lazy var composedButton: UIButton = UIButton(
+        imageName: "tabbar_compose_orange",
+        bgImageName: "")
+//    private lazy var composedButton: UIButton {
+//        let button = UIButton()
+//        button.setImage(UIImage(named: "tabbar_compose_orange"), for: UIControl.State.normal)
+//        button.setImage(UIImage(named: ""), for: UIControl.State.highlighted)
+//        button.setBackgroundImage(UIImage(named: ""), for: UIControl.State.normal)
+//        button.setBackgroundImage(UIImage(named: ""), for: UIControl.State.highlighted)
+//        button.sizeToFit()
+//        return button
+//    } ()
 }
 
 // MARK: -设置界面
