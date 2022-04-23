@@ -22,6 +22,7 @@
 		129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */; };
 		129988DC2812BCF600E1CDE7 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988DB2812BCF600E1CDE7 /* Common.swift */; };
 		129989562813D8F300E1CDE7 /* YYHNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129989552813D8F300E1CDE7 /* YYHNetworkTools.swift */; };
+		129989592813DA7900E1CDE7 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129989582813DA7900E1CDE7 /* OAuthViewController.swift */; };
 		3A832A3C7169DD1E2C220BEE /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF28E929CE3B335C1673E92 /* Pods_Weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		129988DB2812BCF600E1CDE7 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		129989552813D8F300E1CDE7 /* YYHNetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YYHNetworkTools.swift; sourceTree = "<group>"; };
+		129989582813DA7900E1CDE7 /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		DEFA91B9FC285A6E37F114F2 /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
 		EB0CCCE60CAF4FE98DDAF68B /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF28E929CE3B335C1673E92 /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 		1299889728117F6100E1CDE7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				129989572813DA5A00E1CDE7 /* OAuth */,
 				1299889F2811818800E1CDE7 /* Profile */,
 				1299889E2811816D00E1CDE7 /* Discover */,
 				1299889D2811814700E1CDE7 /* Message */,
@@ -187,6 +190,14 @@
 				129988B028127B6700E1CDE7 /* VisitorView.swift */,
 			);
 			path = Visistor;
+			sourceTree = "<group>";
+		};
+		129989572813DA5A00E1CDE7 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				129989582813DA7900E1CDE7 /* OAuthViewController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		1A5E06D944738B533D939B71 /* Pods */ = {
@@ -320,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				129989592813DA7900E1CDE7 /* OAuthViewController.swift in Sources */,
 				129988A12811826500E1CDE7 /* MainViewController.swift in Sources */,
 				1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */,
 				129988D82812AFD400E1CDE7 /* UILabel+Extension.swift in Sources */,

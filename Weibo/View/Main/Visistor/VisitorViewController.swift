@@ -56,6 +56,9 @@ extension VisitorViewController: VisitorViewDelegate {
     
     /// 登录
     @objc func visitorViewLoginClick() {
-        
+        let vc = OAuthViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.navigationBar.backgroundColor = UIColor.white
+        present(nav, animated: true, completion: nil)
     }
 }

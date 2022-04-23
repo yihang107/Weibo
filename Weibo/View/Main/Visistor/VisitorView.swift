@@ -160,6 +160,6 @@ extension VisitorView {
         
         // 添加监听方法
         registerButton.addTarget(self, action: #selector(self.clickRegister), for: UIControl.Event.touchUpInside)
-        registerButton.addTarget(self, action: #selector(self.clickLogin), for: UIControl.Event.touchUpInside)
+        loginButon.addTarget(self, action: #selector(self.clickLogin), for: UIControl.Event.touchUpInside)
     }
 }

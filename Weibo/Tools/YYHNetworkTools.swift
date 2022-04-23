@@ -15,6 +15,12 @@ case POST = "POST"
 }
 
 class YYHNetworkTools: AFHTTPSessionManager {
+    // MARK: 应用程序消息
+    private let appKey = ""
+    private let appSecret = ""
+    private let redirectUrl = ""
+    
+    
     // 单例
     static let sharedTools: YYHNetworkTools = {
         let tools = YYHNetworkTools(baseURL: nil)
@@ -22,6 +28,16 @@ class YYHNetworkTools: AFHTTPSessionManager {
         tools.responseSerializer.acceptableContentTypes?.insert("text/html")
         return tools
     }()
+}
+
+// MARK: OAuth相关方法
+extension YYHNetworkTools {
+    /// OAuth授权
+    /// - see: [授权](https://open.weibo.com/wiki/Oauth2/authorize)
+    var oAuthURL: URL {
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(appKey)&redirect_uri=\(redirectUrl)"
+        return URL(string: urlString)!
+    }
 }
 
 // MARK: 封装AFN网络方法
