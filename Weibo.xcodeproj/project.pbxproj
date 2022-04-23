@@ -21,6 +21,7 @@
 		129988D82812AFD400E1CDE7 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */; };
 		129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */; };
 		129988DC2812BCF600E1CDE7 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129988DB2812BCF600E1CDE7 /* Common.swift */; };
+		129989562813D8F300E1CDE7 /* YYHNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129989552813D8F300E1CDE7 /* YYHNetworkTools.swift */; };
 		3A832A3C7169DD1E2C220BEE /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF28E929CE3B335C1673E92 /* Pods_Weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		129988DB2812BCF600E1CDE7 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		129989552813D8F300E1CDE7 /* YYHNetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YYHNetworkTools.swift; sourceTree = "<group>"; };
 		DEFA91B9FC285A6E37F114F2 /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
 		EB0CCCE60CAF4FE98DDAF68B /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF28E929CE3B335C1673E92 /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,7 @@
 			children = (
 				129988AA281260F600E1CDE7 /* Extension */,
 				129988DB2812BCF600E1CDE7 /* Common.swift */,
+				129989552813D8F300E1CDE7 /* YYHNetworkTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -192,7 +195,6 @@
 				EB0CCCE60CAF4FE98DDAF68B /* Pods-Weibo.debug.xcconfig */,
 				DEFA91B9FC285A6E37F114F2 /* Pods-Weibo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -328,6 +330,7 @@
 				129988AF28126AF400E1CDE7 /* VisitorViewController.swift in Sources */,
 				129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */,
 				129988B128127B6700E1CDE7 /* VisitorView.swift in Sources */,
+				129989562813D8F300E1CDE7 /* YYHNetworkTools.swift in Sources */,
 				129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */,
 				129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */,
 			);
