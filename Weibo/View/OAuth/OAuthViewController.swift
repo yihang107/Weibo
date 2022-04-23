@@ -17,10 +17,18 @@ class OAuthViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    /// 自动填充用户名和密码 以代码的方式向web页面添加内容
+    @objc private func autoFill() {
+        let js = "document.getElementById('userId').value = '';" + "document.getElementById('passwd').value = 'qqq123'";
+        // 让webView执行js
+        webView.evaluateJavaScript(js, completionHandler: nil)
+    }
+    
     override func loadView() {
         view = webView
         title = "登录新浪微博"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.close))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.autoFill))
     }
     override func viewDidLoad() {
         super.viewDidLoad()
