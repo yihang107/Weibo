@@ -15,10 +15,13 @@ case POST = "POST"
 }
 
 class YYHNetworkTools: AFHTTPSessionManager {
-    // MARK: 应用程序消息
+    // MARK: 应用程序信息
     private let appKey = "2045436852"
     private let appSecret = ""
     private let redirectUrl = "https://www.sina.com"
+//    private let appKey = "3326691039"
+//    private let appSecret = "75dd27596a081b28651d214e246c1b15"
+//    private let redirectUrl = "http://api.weibo.com/oauth2/default.html"
     
     /// 类似于OC typeDefine 网络请求回调
     typealias YYHRequestCllBack = (_ result : Any?, _ error: Error?) -> ()
@@ -31,6 +34,18 @@ class YYHNetworkTools: AFHTTPSessionManager {
         tools.responseSerializer.acceptableContentTypes?.insert("text/plain")
         return tools
     }()
+}
+
+// MARK: 用户相关方法
+extension YYHNetworkTools {
+    ///加载用户信息
+    ///see [https://open.weibo.com/wiki/2/users/show](https://open.weibo.com/wiki/2/users/show)
+    func loadUserInfo(uid: String, accessToken: String, finished: @escaping YYHRequestCllBack) {
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        let params = ["uid": uid,
+                      "access_token": accessToken]
+        request(method: NetworkRequestMethod.GET, URLString: urlString, parameters: params, finished: finished)
+    }
 }
 
 // MARK: OAuth相关方法
@@ -51,6 +66,10 @@ extension YYHNetworkTools {
                       "code": code,
                       "redirect_uri": redirectUrl]
         request(method: NetworkRequestMethod.POST, URLString: urlString, parameters: params, finished: finished)
+        
+        // 测试返回的数据内容 AFN默认返回格式是JSON, 会直接反序列化
+        responseSerializer = AFHTTPResponseSerializer()
+        
     }
 }
 
