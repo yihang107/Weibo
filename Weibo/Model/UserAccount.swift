@@ -51,24 +51,6 @@ class UserAccount: NSObject, NSSecureCoding {
         return dictionaryWithValues(forKeys: keys).description
     }
     
-    // MARK: 保存当前对象
-    func saveUserAccount() {
-        var path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
-        path = path.appending("/account.plist")
-        // 实际开发中一定要确认文件保存下来了
-        print("用户归档保存路径\(path)")
-        do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: true)
-            do {
-                try data.write(to: URL(fileURLWithPath: path))
-            } catch {
-                print("用户data存入失败\(error)")
-            }
-        } catch {
-            print("用户模型转data失败\(error)")
-        }
-    }
-    
     // MARK: 归档和解档  键值
     /// 把当前对象保存到磁盘前，将对象编码成二进制数据 和网络的序列化
     func encode(with coder: NSCoder) {
