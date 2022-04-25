@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SnapKit
 
 // 代理 block NSNotification KVO target
 /// 访客视图的协议
@@ -123,38 +123,70 @@ extension VisitorView {
         addSubview(registerButton)
         addSubview(loginButon)
         // 设置自动布局
+        // snapkit的方式
+        iconView.snp.makeConstraints { make in
+            make.centerX.equalTo(self.snp.centerX)
+            make.centerY.equalTo(self.snp.centerY).offset(-60)
+        }
+        
+        loadRoundView.snp.makeConstraints { make in
+            make.centerX.equalTo(self.snp.centerX)
+            make.centerY.equalTo(self.snp.centerY).offset(-60)
+        }
+        
+        messageLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(self.snp.centerX)
+            make.top.equalTo(loadRoundView.snp.bottom).offset(16)
+            make.width.equalTo(224)
+            make.height.equalTo(36)
+        }
+        
+        registerButton.snp.makeConstraints { make in
+            make.left.equalTo(messageLabel.snp.left)
+            make.top.equalTo(messageLabel.snp.bottom).offset(20)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+        
+        loginButon.snp.makeConstraints { make in
+            make.right.equalTo(messageLabel.snp.right)
+            make.top.equalTo(messageLabel.snp.bottom).offset(20)
+            make.width.equalTo(60)
+            make.height.equalTo(40)
+        }
+        
         /*
          添加约束需要添加到父视图上
          建议子视图有一个统一的参照物
          */
         //  true 支持使用setFrame的方式设置控件位置
         // false支持使用自动布局方式设置
-        for v in subviews {
-            v.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        // 图标
-        addConstraint(NSLayoutConstraint(item: iconView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: iconView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1.0, constant: 0))
-        // 转轮
-        addConstraint(NSLayoutConstraint(item: loadRoundView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: loadRoundView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1.0, constant: 0))
-        // 消息文字
-        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: loadRoundView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 16))
-        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 224))
-        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 36))
-        // 注册按钮
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 20))
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 60))
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 30))
-        
-        // 登录按钮
-        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 20))
-        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 60))
-        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 30))
+//        for v in subviews {
+//            v.translatesAutoresizingMaskIntoConstraints = false
+//        }
+//
+//        // 图标
+//        addConstraint(NSLayoutConstraint(item: iconView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0))
+//        addConstraint(NSLayoutConstraint(item: iconView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1.0, constant: 0))
+//        // 转轮
+//        addConstraint(NSLayoutConstraint(item: loadRoundView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0))
+//        addConstraint(NSLayoutConstraint(item: loadRoundView, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1.0, constant: 0))
+//        // 消息文字
+//        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0))
+//        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: loadRoundView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 16))
+//        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 224))
+//        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 36))
+//        // 注册按钮
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1.0, constant: 0))
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 20))
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 60))
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 30))
+//
+//        // 登录按钮
+//        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1.0, constant: 0))
+//        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: messageLabel, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 20))
+//        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 60))
+//        addConstraint(NSLayoutConstraint(item: loginButon, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 30))
         // 通过VFL设置
 //        addConstraint(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[login]-0-|", options: [], metrics: nil, views: ["login": loginButon ]))
         

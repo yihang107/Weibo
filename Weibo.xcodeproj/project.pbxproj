@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12958B902816331900310D41 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		1299887528114F3800E1CDE7 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 		1299889B2811812C00E1CDE7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				12958B902816331900310D41 /* NewFeature */,
 				129988AD28126AC100E1CDE7 /* Visistor */,
 				129988A02811826500E1CDE7 /* MainViewController.swift */,
 			);
@@ -353,6 +364,7 @@
 				1299895D2815413000E1CDE7 /* UserAccountViewModel.swift in Sources */,
 				129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */,
 				1299895B281519BB00E1CDE7 /* UserAccount.swift in Sources */,
+				12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
