@@ -16,7 +16,7 @@ class UserAccount: NSObject, NSSecureCoding {
     var access_token: String?
     /// access_token的生命周期， 单位是秒数
     /// 一旦从服务器获得过期的时间，立刻计算准确日期
-    @objc var expires_in: TimeInterval = 0 {
+    var expires_in: TimeInterval = 0 {
         didSet {
             expiresDate = Date(timeIntervalSinceNow: expires_in)
         }
@@ -38,12 +38,8 @@ class UserAccount: NSObject, NSSecureCoding {
         setValuesForKeys(dict)
     }
     
-    override class func setValue(_ value: Any?, forKey key: String) {
-        super.setValue(value, forKey: key)
-    }
-    
-    override class func setValue(_ value: Any?, forUndefinedKey key: String) {
-        
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
+        print(key)
     }
     
     override var description: String {

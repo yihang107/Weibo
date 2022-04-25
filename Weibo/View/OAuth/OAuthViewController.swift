@@ -19,7 +19,8 @@ class OAuthViewController: UIViewController {
     
     /// 自动填充用户名和密码 以代码的方式向web页面添加内容
     @objc private func autoFill() {
-        let js = "document.getElementById('loginName').value = '17702348271';" + "document.getElementById('loginPassword').value = '111111yy'";
+//        let js = "document.getElementById('loginName').value = '17702348271';" + "document.getElementById('loginPassword').value = '111111yy'";
+        let js = "document.getElementById('loginName').value = '15060002778';" + "document.getElementById('loginPassword').value = '15060002778'";
         // 让webView执行js
         webView.evaluateJavaScript(js, completionHandler: nil)
     }
