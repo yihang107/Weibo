@@ -7,12 +7,22 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let NewFeatureViewCellId = "NewFeatureViewCellId"
+private let NewFeatureImageCount = 4
 
 class NewFeatureCollectionViewController: UICollectionViewController {
-    // MARK: 构造函数
+    // MARK: -构造函数
     init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = UIScreen.main.bounds.size
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        super.init(collectionViewLayout: layout)
+        
+        collectionView?.isPagingEnabled = true
+        collectionView?.bounces = false
+        collectionView?.showsHorizontalScrollIndicator = false
     }
     
     required init?(coder: NSCoder) {
@@ -21,61 +31,106 @@ class NewFeatureCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        self.collectionView!.register(NewFeatureCell.self, forCellWithReuseIdentifier: NewFeatureViewCellId)
     }
 
-    // MARK: UICollectionViewDataSource
-
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    // MARK: -UICollectionViewDataSource
+    // 每个分组中格子的数量
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return NewFeatureImageCount
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewFeatureViewCellId, for: indexPath) as! NewFeatureCell
+        cell.imageIndex = indexPath.item
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    // MARK: -UICollectionViewDelegate
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        
+        if page != NewFeatureImageCount - 1 {
+            return
+        }
+        
+       let cell =  collectionView?.cellForItem(at: IndexPath.init(item: page, section: 0)) as! NewFeatureCell
+        cell.showButtonAnimation()
     }
-    */
+}
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
+
+// MARK: 新特性Cell
+private class NewFeatureCell: UICollectionViewCell {
+    var imageIndex: Int = 0 {
+        didSet {
+            iconView.contentMode = .scaleAspectFit
+            iconView.image = UIImage(named: "new_feature_\(imageIndex)")
+            startButton.isHidden = true
+//            showButtonAnimation()
+        }
     }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    /// 点击开始体验
+    @objc private func clickStartBtn() {
+        window?.rootViewController = MainViewController()
     }
-    */
+    
+    /// 显示按钮动画
+    func showButtonAnimation() {
+        startButton.isHidden = false
+        startButton.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+        self.startButton.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 0.5, options: UIView.AnimationOptions.curveEaseInOut) {
+            self.startButton.transform = CGAffineTransform.identity
+        } completion: { finish in
+            self.startButton.isUserInteractionEnabled = true
+        }
 
+    }
+    
+    // frame的大小是 layout.itemSize指定的
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        // 添加控件
+        addSubview(iconView)
+        addSubview(startButton)
+        // 指定位置
+        iconView.frame = bounds
+//        iconView.backgroundColor = UIColor.yellow
+        
+        startButton.snp.makeConstraints { make in
+            make.centerX.equalTo(self.snp.centerX)
+            make.bottom.equalTo(self.snp.bottom).offset(-100)
+            make.width.equalTo(80)
+            make.height.equalTo(60)
+        }
+        
+        startButton.addTarget(self, action: #selector(self.clickStartBtn), for: UIControl.Event.touchUpInside)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: 懒加载控件
+    private lazy var iconView: UIImageView = UIImageView()
+    /// 开始体验按钮
+    private lazy var startButton: UIButton = UIButton(title: "开始体验", color: UIColor.orange)
 }

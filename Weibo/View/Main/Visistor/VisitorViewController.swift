@@ -51,7 +51,7 @@ class VisitorViewController: UITableViewController {
 extension VisitorViewController: VisitorViewDelegate {
     ///  注册
     @objc func visitorViewRegisterClick() {
-        
+       
     }
     
     /// 登录
