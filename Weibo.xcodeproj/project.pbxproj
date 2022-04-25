@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */; };
+		12958B942816513200310D41 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B932816513200310D41 /* WelcomeViewController.swift */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
+		12958B932816513200310D41 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */,
+				12958B932816513200310D41 /* WelcomeViewController.swift */,
 			);
 			path = NewFeature;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */,
 				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
 				129988AF28126AF400E1CDE7 /* VisitorViewController.swift in Sources */,
+				12958B942816513200310D41 /* WelcomeViewController.swift in Sources */,
 				129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */,
 				129988B128127B6700E1CDE7 /* VisitorView.swift in Sources */,
 				129989562813D8F300E1CDE7 /* YYHNetworkTools.swift in Sources */,
@@ -509,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myself.yyh.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -541,7 +545,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myself.yyh.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

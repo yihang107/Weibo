@@ -9,5 +9,8 @@
 import Foundation
 import UIKit
 
-// 全局外观渲染颜色
+/// 全局通知定义
+let WBSwitchRootViewControllerNotification = "WBSwitchRootViewControllerNotification"
+
+/// 全局外观渲染颜色
 let WBAppearanceTintColor =  UIColor.orange

@@ -19,8 +19,8 @@ class OAuthViewController: UIViewController {
     
     /// 自动填充用户名和密码 以代码的方式向web页面添加内容
     @objc private func autoFill() {
-//        let js = "document.getElementById('loginName').value = '17702348271';" + "document.getElementById('loginPassword').value = '111111yy'";
-        let js = "document.getElementById('loginName').value = '15060002778';" + "document.getElementById('loginPassword').value = '15060002778'";
+        let js = "document.getElementById('loginName').value = '17702348271';" + "document.getElementById('loginPassword').value = '111111yy'";
+
         // 让webView执行js
         webView.evaluateJavaScript(js, completionHandler: nil)
     }
@@ -70,10 +70,16 @@ extension OAuthViewController: WKNavigationDelegate {
         
         // 加载accessToken
         UserAccountViewModel.sharedUserAccount.loadAccessToken(code: code) { isSuccessed in
-            if isSuccessed {
-                print("access获取成功")
-            } else {
+            if !isSuccessed {
                 print("access获取失败")
+                return
+            }
+            
+            print("access获取成功")
+            // dismiss不会立刻将控制器销毁
+            self.dismiss(animated: false) {
+                // 通知中心是同步的 一旦发送通知 会先执行监听方法 直接结束后 才执行后续代码
+                NotificationCenter.default.post(name: NSNotification.Name(WBSwitchRootViewControllerNotification), object: "welcome", userInfo: nil)
             }
         }
         decisionHandler(WKNavigationResponsePolicy.allow)

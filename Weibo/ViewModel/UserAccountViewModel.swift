@@ -26,13 +26,17 @@ class UserAccountViewModel {
         if !isExpired {
             return account?.access_token
         }
-        
         return nil
     }
     
     /// 用户登记标志
     var userLogin: Bool {
         return account?.access_token != nil && !isExpired
+    }
+    
+    /// 用户头像
+    var avatarUrl: URL {
+        return URL(string: account?.avatar_large ?? "")!
     }
     
     /// 归档保存路径  计算型属性
