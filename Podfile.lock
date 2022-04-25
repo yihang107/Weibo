@@ -14,31 +14,31 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - SDProgressHUD (1.0.0)
   - SDWebImage (5.12.5):
     - SDWebImage/Core (= 5.12.5)
   - SDWebImage/Core (5.12.5)
   - SnapKit (5.6.0)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - AFNetworking
-  - SDProgressHUD
   - SDWebImage
   - SnapKit
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - AFNetworking
-    - SDProgressHUD
     - SDWebImage
     - SnapKit
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  SDProgressHUD: 5de2c06d81774597fdf8b47e30bbe85193d7e4cb
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 30c848565b5469a8bea8bdb6fa9d9824353ae4ee
+PODFILE CHECKSUM: 833db8979532a3550bec95d4ae9b5a6a7e70eac0
 
 COCOAPODS: 1.11.3

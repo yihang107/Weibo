@@ -27,4 +27,15 @@ extension UIButton {
         backgroundColor = UIColor.white
         layer.cornerRadius = 10
     }
+    
+    
+    convenience init(title: String, color: UIColor, imageName: String, fontSize: CGFloat) {
+        self.init()
+        
+        setTitle(title, for: UIControl.State.normal)
+        setTitleColor(color, for: UIControl.State.normal)
+        setImage(UIImage(named: imageName), for: UIControl.State.normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        sizeToFit()
+    }
 }

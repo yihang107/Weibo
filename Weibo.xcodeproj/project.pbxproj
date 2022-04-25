@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */; };
 		12958B942816513200310D41 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B932816513200310D41 /* WelcomeViewController.swift */; };
+		12958B96281697C400310D41 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B95281697C400310D41 /* Status.swift */; };
+		12958B982816A72200310D41 /* StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B972816A72200310D41 /* StatusListViewModel.swift */; };
+		12958B9A2816ABA800310D41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B992816ABA800310D41 /* User.swift */; };
+		12958B9C2816B2EB00310D41 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B9B2816B2EB00310D41 /* StatusViewModel.swift */; };
+		12958B9F2816B50F00310D41 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B9E2816B50F00310D41 /* StatusCell.swift */; };
+		12958BA12816B54B00310D41 /* StatusCellTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BA02816B54B00310D41 /* StatusCellTopView.swift */; };
+		12958BA32816B56500310D41 /* StatusCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BA22816B56500310D41 /* StatusCellBottomView.swift */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -33,6 +40,13 @@
 /* Begin PBXFileReference section */
 		12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		12958B932816513200310D41 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		12958B95281697C400310D41 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		12958B972816A72200310D41 /* StatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListViewModel.swift; sourceTree = "<group>"; };
+		12958B992816ABA800310D41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		12958B9B2816B2EB00310D41 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		12958B9E2816B50F00310D41 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		12958BA02816B54B00310D41 /* StatusCellTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellTopView.swift; sourceTree = "<group>"; };
+		12958BA22816B56500310D41 /* StatusCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellBottomView.swift; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +91,16 @@
 				12958B932816513200310D41 /* WelcomeViewController.swift */,
 			);
 			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		12958B9D2816B4DA00310D41 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				12958B9E2816B50F00310D41 /* StatusCell.swift */,
+				12958BA02816B54B00310D41 /* StatusCellTopView.swift */,
+				12958BA22816B56500310D41 /* StatusCellBottomView.swift */,
+			);
+			path = StatusCell;
 			sourceTree = "<group>";
 		};
 		1299887528114F3800E1CDE7 = {
@@ -129,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				1299895C2815413000E1CDE7 /* UserAccountViewModel.swift */,
+				12958B972816A72200310D41 /* StatusListViewModel.swift */,
+				12958B9B2816B2EB00310D41 /* StatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -137,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				1299895A281519BB00E1CDE7 /* UserAccount.swift */,
+				12958B95281697C400310D41 /* Status.swift */,
+				12958B992816ABA800310D41 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +192,7 @@
 		1299889C2811813900E1CDE7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				12958B9D2816B4DA00310D41 /* StatusCell */,
 				129988A2281182A900E1CDE7 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -359,16 +388,23 @@
 				129988DC2812BCF600E1CDE7 /* Common.swift in Sources */,
 				129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */,
 				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
+				12958B9F2816B50F00310D41 /* StatusCell.swift in Sources */,
+				12958B982816A72200310D41 /* StatusListViewModel.swift in Sources */,
 				129988AF28126AF400E1CDE7 /* VisitorViewController.swift in Sources */,
 				12958B942816513200310D41 /* WelcomeViewController.swift in Sources */,
 				129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */,
 				129988B128127B6700E1CDE7 /* VisitorView.swift in Sources */,
 				129989562813D8F300E1CDE7 /* YYHNetworkTools.swift in Sources */,
+				12958BA32816B56500310D41 /* StatusCellBottomView.swift in Sources */,
 				129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */,
 				1299895D2815413000E1CDE7 /* UserAccountViewModel.swift in Sources */,
 				129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */,
 				1299895B281519BB00E1CDE7 /* UserAccount.swift in Sources */,
+				12958B9C2816B2EB00310D41 /* StatusViewModel.swift in Sources */,
+				12958BA12816B54B00310D41 /* StatusCellTopView.swift in Sources */,
+				12958B96281697C400310D41 /* Status.swift in Sources */,
 				12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */,
+				12958B9A2816ABA800310D41 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

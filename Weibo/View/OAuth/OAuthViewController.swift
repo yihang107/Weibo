@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import SVProgressHUD
 
 /// 用户登录控制器
 class OAuthViewController: UIViewController {
@@ -14,13 +15,13 @@ class OAuthViewController: UIViewController {
     
     // MARK: 监听方法
     @objc private func close() {
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
     
     /// 自动填充用户名和密码 以代码的方式向web页面添加内容
     @objc private func autoFill() {
         let js = "document.getElementById('loginName').value = '17702348271';" + "document.getElementById('loginPassword').value = '111111yy'";
-
         // 让webView执行js
         webView.evaluateJavaScript(js, completionHandler: nil)
     }
@@ -58,6 +59,7 @@ extension OAuthViewController: WKNavigationDelegate {
         // 从重定向地址提取code是否存在
         guard let query = url.query, query.hasPrefix("code=") else {
             decisionHandler(WKNavigationResponsePolicy.cancel)
+            self.close()
             return
         }
         
@@ -72,12 +74,18 @@ extension OAuthViewController: WKNavigationDelegate {
         UserAccountViewModel.sharedUserAccount.loadAccessToken(code: code) { isSuccessed in
             if !isSuccessed {
                 print("access获取失败")
+                SVProgressHUD.showInfo(withStatus: "您的网络不给力, 请稍后再试")
+                delay(delata: 1.0) {
+                    self.close()
+                }
                 return
             }
             
             print("access获取成功")
             // dismiss不会立刻将控制器销毁
             self.dismiss(animated: false) {
+                // 停止指示器
+                SVProgressHUD.dismiss()
                 // 通知中心是同步的 一旦发送通知 会先执行监听方法 直接结束后 才执行后续代码
                 NotificationCenter.default.post(name: NSNotification.Name(WBSwitchRootViewControllerNotification), object: "welcome", userInfo: nil)
             }
@@ -85,4 +93,11 @@ extension OAuthViewController: WKNavigationDelegate {
         decisionHandler(WKNavigationResponsePolicy.allow)
     }
     
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        SVProgressHUD.show()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        SVProgressHUD.dismiss()
+    }
 }

@@ -49,7 +49,23 @@ class YYHNetworkTools: AFHTTPSessionManager {
     }
 }
 
-// MARK: 用户相关方法
+// MARK: - 微博数据相关方法
+extension YYHNetworkTools {
+    
+    /// 加载主页微博数据
+    /// see [https://api.weibo.com/2/statuses/home_timeline.json](https://api.weibo.com/2/statuses/home_timeline.json)
+    func loadStatus(finished: @escaping YYHRequestCllBack) {
+        guard let params = tokenDict else {
+            // 如果字典为nil, 通知调用方， token无效
+            finished(nil, NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message": "token为空"]))
+            return
+        }
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+        request(method: NetworkRequestMethod.GET, URLString: urlString, parameters: params, finished: finished)
+    }
+}
+
+// MARK: - 用户相关方法
 extension YYHNetworkTools {
     ///加载用户信息
     ///see [https://open.weibo.com/wiki/2/users/show](https://open.weibo.com/wiki/2/users/show)
@@ -67,7 +83,7 @@ extension YYHNetworkTools {
     }
 }
 
-// MARK: OAuth相关方法
+// MARK: - OAuth相关方法
 extension YYHNetworkTools {
     /// OAuth授权
     /// - see: [授权](https://open.weibo.com/wiki/Oauth2/authorize)
