@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SDWebImage
 
 /// 微博数据列表模型 - 封装网络方法
 class StatusListViewModel {
@@ -41,7 +41,35 @@ class StatusListViewModel {
             
             self.statusList = dataList + self.statusList
             print(self.statusList)
-            finished(true)
+            
+            // 缓存单张图片
+            self.cacheSingleImage(dataList: dataList, finished: finished)
         }
+    }
+    
+    /// 缓存所有单张图片的微博的图片
+    private func cacheSingleImage(dataList: [StatusViewModel], finished: @escaping(_ isSuccessed: Bool)->()) {
+        let group = DispatchGroup()
+        // 遍历
+        for vm in dataList {
+            print(vm)
+            if vm.thumbnailUrls?.count != 1 {
+                continue
+            }
+            
+            let url = vm.thumbnailUrls![0]
+            // 入组
+            group.enter()
+            SDWebImageManager.shared.loadImage(with: url, options: [SDWebImageOptions.retryFailed, SDWebImageOptions.refreshCached], progress: nil) { image, _, _, _, _, _ in
+                // 单张图片下载完成
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: DispatchQueue.global(), work: DispatchWorkItem.init(block: {
+            print("缓存完成")
+            // 完成回调 控制器才开始刷新表格
+            finished(true)
+        }))
     }
 }

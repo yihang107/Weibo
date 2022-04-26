@@ -61,7 +61,32 @@ extension StatusPictureView {
         }
         
         if  count == 1 {
-            let size = CGSize(width: 150, height: 120)
+            // 利用SDWebImage 检查本地的缓存图像
+            var size = CGSize(width: 150, height: 120)
+            if let key = viewModel?.thumbnailUrls?.first?.absoluteString {
+                // 这里异步查找图片？
+                // SDWebImage 设置文件名 完整URL字符串 MD5
+                SDWebImageManager.shared.imageCache.queryImage(forKey: key,
+                                                               options: [SDWebImageOptions.refreshCached, SDWebImageOptions.retryFailed],
+                                                               context: nil) { image, _, _ in
+                    if let img = image {
+                        size = img.size
+                        layout.itemSize = size
+                        
+                        // 过窄处理 - 针对长图
+                        size.width = size.width < 40 ? 40 : size.width
+                        
+                        // 过宽图片
+                        if size.width > 300 {
+                            let w: CGFloat = 300
+                            let h = size.height * w / size.width
+                            size = CGSize(width: w, height: h)
+                        }
+                    }
+                }
+                
+            }
+            
             layout.itemSize = size
             return size
         }
