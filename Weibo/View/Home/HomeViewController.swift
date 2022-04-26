@@ -31,8 +31,8 @@ class HomeViewController: VisitorViewController {
     /// 准备表格
     private func prepareTableView() {
         // 注册可重用cell
-        tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
-        tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellRetweetedId)
+        tableView.register(StatusNormalCell.self, forCellReuseIdentifier: StatusCellNormalId)
+        tableView.register(StatusRetweetedCell.self, forCellReuseIdentifier: StatusCellRetweetedId)
         // 预估行高 需要一个自上而下的自动布局的控件 指定向下的约束即可
 //        tableView.estimatedRowHeight = 200
 //        tableView.rowHeight = UITableView.automaticDimension
@@ -62,11 +62,10 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // 会调用行高方法
-        let cell = tableView.dequeueReusableCell(withIdentifier: StatusCellNormalId, for: indexPath) as! StatusCell
-//        cell.textLabel?.text = listViewModel.statusList[indexPath.row].status.text
-        cell.viewModel = listViewModel.statusList[indexPath.row]
+        let vm = listViewModel.statusList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: vm.cellId, for: indexPath) as! StatusCell
+        cell.viewModel = vm
         return cell
     }
     

@@ -12,11 +12,21 @@ class StatusViewModel: CustomStringConvertible {
     /// 微博的模型
     var status: Status
     
+    /// cell的可重用标识符号
+    var cellId: String {
+        return status.retweeted_status != nil ? StatusCellRetweetedId : StatusCellNormalId
+    }
+    
+    
     /// 行高
     lazy var rowHeight: CGFloat = {
-//        let cell = StatusCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: StatusCellNormalId)
-        let cell = StatusRetweetedCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: StatusCellRetweetedId)
-        return cell.rowHeight(vm: self)
+        var statusCell: StatusCell
+        if self.status.retweeted_status != nil {
+            statusCell = StatusRetweetedCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: StatusCellRetweetedId)
+        } else {
+            statusCell = StatusNormalCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: StatusCellNormalId)
+        }
+        return statusCell.rowHeight(vm: self)
     } ()
     
     /// 用户头像 URL
@@ -24,18 +34,26 @@ class StatusViewModel: CustomStringConvertible {
         return URL(string: status.user?.profile_image_url ?? "")!
     }
     
-    /// 默认图片
+    /// 头像默认图片
     var userDefaultIconView: UIImage {
         return UIImage(named: "welcome_head")!
     }
     
-    ///
+    /// 微博
     var statusPicDefaultIconView: UIImage {
         return UIImage(named: "status_404")!
     }
     
     /// 缩略图URL数组 存储性属性
     var thumbnailUrls: [URL]?
+    
+    /// 转发微博文字
+    var retweetedText: String? {
+        guard let s = status.retweeted_status else {
+            return nil
+        }
+        return "@\(s.user?.screen_name ?? "")" + ":\(s.text ?? "")" 
+    }
     
     init(status: Status) {
         self.status = status

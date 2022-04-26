@@ -30,8 +30,8 @@ class StatusCell: UITableViewCell {
                 make.width.equalTo(pictureView.bounds.width)
                 
                 // 根据配图视图 决定视图的顶部间距
-                let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
-                make.top.equalTo(contentLabel.snp.bottom).offset(offset)
+//                let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
+//                make.top.equalTo(contentLabel.snp.bottom).offset(offset)
             }
         }
     }
@@ -63,18 +63,18 @@ class StatusCell: UITableViewCell {
     /// 顶部视图
     private lazy var topView: StatusCellTopView = StatusCellTopView()
     /// 微博正文标签
-    private lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15)
+    lazy var contentLabel: UILabel = UILabel(title: "微博正文", fontSize: 15)
     /// 微博图片视图
-    private lazy var pictureView: StatusPictureView = StatusPictureView()
+    lazy var pictureView: StatusPictureView = StatusPictureView()
     /// 底部视图
-    private lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
+    lazy var bottomView: StatusCellBottomView = StatusCellBottomView()
     
     
 }
 
 
 extension StatusCell {
-    private func setupUI() {
+    @objc func setupUI() {
         contentView.addSubview(topView)
         contentView.addSubview(contentLabel)
         contentView.addSubview(pictureView)
@@ -93,12 +93,12 @@ extension StatusCell {
 //            make.right.equalTo(contentView.snp.right).offset(-StatusCellMargin)
         }
         
-        pictureView.snp.makeConstraints { make in
-            make.top.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin)
-            make.left.equalTo(contentLabel.snp.left)
-            make.width.equalTo(300)
-            make.height.equalTo(90)
-        }
+//        pictureView.snp.makeConstraints { make in
+//            make.top.equalTo(contentLabel.snp.bottom).offset(StatusCellMargin)
+//            make.left.equalTo(contentLabel.snp.left)
+//            make.width.equalTo(300)
+//            make.height.equalTo(90)
+//        }
         
         bottomView.snp.makeConstraints { make in
             make.top.equalTo(pictureView.snp.bottom).offset(StatusCellMargin)
