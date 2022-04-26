@@ -14,7 +14,8 @@ class StatusViewModel: CustomStringConvertible {
     
     /// 行高
     lazy var rowHeight: CGFloat = {
-        let cell = StatusCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: StatusCellNormalId)
+//        let cell = StatusCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: StatusCellNormalId)
+        let cell = StatusRetweetedCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: StatusCellRetweetedId)
         return cell.rowHeight(vm: self)
     } ()
     
@@ -39,12 +40,12 @@ class StatusViewModel: CustomStringConvertible {
     init(status: Status) {
         self.status = status
         
-        // 生成缩略图数组
-        if status.pic_urls?.count ?? 0 > 0 {
+        // 生成缩略图数组  要么是转发微博的图片 要么是本身视图的图片
+        if let urls = status.retweeted_status?.pic_urls ?? status.pic_urls {
             thumbnailUrls = [URL]()
             
             // 数组如果可选 不允许遍历
-            for dic in status.pic_urls! {
+            for dic in urls {
                 let url = URL(string: dic["thumbnail_pic"]!)
                 thumbnailUrls?.append(url!)
             }

@@ -17,6 +17,7 @@
 		12958BA12816B54B00310D41 /* StatusCellTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BA02816B54B00310D41 /* StatusCellTopView.swift */; };
 		12958BA32816B56500310D41 /* StatusCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BA22816B56500310D41 /* StatusCellBottomView.swift */; };
 		12958BA52817855000310D41 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BA42817855000310D41 /* StatusPictureView.swift */; };
+		12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BC62817F45F00310D41 /* StatusRetweetedCell.swift */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -49,6 +50,7 @@
 		12958BA02816B54B00310D41 /* StatusCellTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellTopView.swift; sourceTree = "<group>"; };
 		12958BA22816B56500310D41 /* StatusCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellBottomView.swift; sourceTree = "<group>"; };
 		12958BA42817855000310D41 /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		12958BC62817F45F00310D41 /* StatusRetweetedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRetweetedCell.swift; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				12958B9E2816B50F00310D41 /* StatusCell.swift */,
+				12958BC62817F45F00310D41 /* StatusRetweetedCell.swift */,
 				12958BA02816B54B00310D41 /* StatusCellTopView.swift */,
 				12958BA22816B56500310D41 /* StatusCellBottomView.swift */,
 				12958BA42817855000310D41 /* StatusPictureView.swift */,
@@ -406,6 +409,7 @@
 				12958B9C2816B2EB00310D41 /* StatusViewModel.swift in Sources */,
 				12958BA52817855000310D41 /* StatusPictureView.swift in Sources */,
 				12958BA12816B54B00310D41 /* StatusCellTopView.swift in Sources */,
+				12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */,
 				12958B96281697C400310D41 /* Status.swift in Sources */,
 				12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */,
 				12958B9A2816ABA800310D41 /* User.swift in Sources */,

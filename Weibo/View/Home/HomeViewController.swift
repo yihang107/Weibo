@@ -9,6 +9,7 @@ import UIKit
 import SVProgressHUD
 
 let StatusCellNormalId = "StatusCellNormalId"
+let StatusCellRetweetedId = "StatusCellRetweetedId"
 class HomeViewController: VisitorViewController {
     
     /// 微博数据列表模型
@@ -31,7 +32,7 @@ class HomeViewController: VisitorViewController {
     private func prepareTableView() {
         // 注册可重用cell
         tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellNormalId)
-        
+        tableView.register(StatusCell.self, forCellReuseIdentifier: StatusCellRetweetedId)
         // 预估行高 需要一个自上而下的自动布局的控件 指定向下的约束即可
 //        tableView.estimatedRowHeight = 200
 //        tableView.rowHeight = UITableView.automaticDimension

@@ -30,6 +30,7 @@ class Status: NSObject {
     var attitudes_count: Int = 0
     
     /// 缩略图
+    /// 原创微博可以有图 也可以没有图 转发微博一定有图
     var thumbnail_pic: String?
     
     /// 配图数组
@@ -40,6 +41,9 @@ class Status: NSObject {
     
     /// 用户模型
     var user: User?
+    
+    /// 被转发的原微博信息字段
+    var retweeted_status: Status?
     
     init(dict: [String: Any]) {
         super.init()
@@ -54,6 +58,13 @@ class Status: NSObject {
             return
         }
         
+        if key == "retweeted_status" {
+            if let dict = value as? [String: Any] {
+                retweeted_status = Status(dict: dict)
+            }
+            return
+        }
+        
         super.setValue(value, forKey: key)
     }
     
@@ -62,7 +73,7 @@ class Status: NSObject {
     }
     
     override var description: String{
-        let keys = ["id", "text", "created_at", "reposts_count", "comments_count", "attitudes_count", "pic_urls"]
+        let keys = ["id", "text", "created_at", "reposts_count", "comments_count", "attitudes_count", "pic_urls", "retweeted_status"]
         return dictionaryWithValues(forKeys: keys).description
     }
 }
