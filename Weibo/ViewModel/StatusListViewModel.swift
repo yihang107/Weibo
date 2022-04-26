@@ -40,6 +40,7 @@ class StatusListViewModel {
             }
             
             self.statusList = dataList + self.statusList
+            print(self.statusList)
             finished(true)
         }
     }

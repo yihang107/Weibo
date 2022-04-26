@@ -32,8 +32,11 @@ class Status: NSObject {
     /// 缩略图
     var thumbnail_pic: String?
     
-    /// 配图id
-    var pic_ids: [String]?
+    /// 配图数组
+//    var pic_ids: [String: String]?
+    
+    /// 配图数组
+    var pic_urls: [[String: String]]?
     
     /// 用户模型
     var user: User?
@@ -59,7 +62,7 @@ class Status: NSObject {
     }
     
     override var description: String{
-        let keys = ["id", "text", "created_at", "reposts_count", "comments_count", "attitudes_count"]
+        let keys = ["id", "text", "created_at", "reposts_count", "comments_count", "attitudes_count", "pic_urls"]
         return dictionaryWithValues(forKeys: keys).description
     }
 }

@@ -48,8 +48,19 @@ extension StatusCellTopView {
         addSubview(namelabel)
         addSubview(timeLabel)
         
+        let stepView = UIView()
+        stepView.backgroundColor = UIColor.lightGray
+        addSubview(stepView)
+        
+        stepView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.height.equalTo(StatusCellMargin)
+        }
+        
         iconView.snp.makeConstraints { make in
-            make.centerY.equalTo(self.snp.centerY)
+            make.top.equalTo(stepView.snp.bottom).offset(StatusCellMargin)
             make.left.equalTo(self.snp.left).offset(StatusCellMargin)
             make.width.equalTo(StatusCellIconWidth)
             make.height.equalTo(StatusCellIconWidth)
