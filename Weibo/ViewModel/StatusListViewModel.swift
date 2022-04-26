@@ -18,10 +18,11 @@ class StatusListViewModel {
         YYHNetworkTools.sharedTools.loadStatus { result, error in
             if error != nil {
                 print("主页微博数据请求出错")
+                finished(false)
                 return
             }
             
-//            print(result!)
+            print(result!)
             guard let newResult = result as? [String: Any] else{
                 print("数据格式错误")
                 finished(false)
@@ -66,7 +67,8 @@ class StatusListViewModel {
             }
         }
         
-        group.notify(queue: DispatchQueue.global(), work: DispatchWorkItem.init(block: {
+        // 应该使用主队列开启回调
+        group.notify(queue: DispatchQueue.main, work: DispatchWorkItem.init(block: {
             print("缓存完成")
             // 完成回调 控制器才开始刷新表格
             finished(true)
