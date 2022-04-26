@@ -28,6 +28,10 @@ class StatusCell: UITableViewCell {
                 make.height.equalTo(pictureView.bounds.height)
 //                // 直接设置宽度数值
                 make.width.equalTo(pictureView.bounds.width)
+                
+                // 根据配图视图 决定视图的顶部间距
+                let offset = viewModel?.thumbnailUrls?.count ?? 0 > 0 ? StatusCellMargin : 0
+                make.top.equalTo(contentLabel.snp.bottom).offset(offset)
             }
         }
     }
@@ -47,6 +51,7 @@ class StatusCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {

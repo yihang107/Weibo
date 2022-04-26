@@ -106,3 +106,11 @@ extension HomeViewController {
         return vm.rowHeight
     }
 }
+
+// MARK: delegate
+extension HomeViewController{
+    /// 选中微博
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}

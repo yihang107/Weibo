@@ -127,7 +127,8 @@ private class StatusPictureViewCell: UICollectionViewCell {
             make.bottom.equalTo(contentView.snp.bottom)
             make.top.equalTo(contentView.snp.top)
         }
-//        iconView.contentMode = .scaleAspectFill
+        iconView.contentMode = .scaleAspectFill
+        iconView.clipsToBounds = true
     }
     // MARK: 懒加载控件
     private lazy var iconView: UIImageView = UIImageView()
