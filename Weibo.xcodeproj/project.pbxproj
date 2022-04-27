@@ -19,6 +19,8 @@
 		12958BA52817855000310D41 /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BA42817855000310D41 /* StatusPictureView.swift */; };
 		12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BC62817F45F00310D41 /* StatusRetweetedCell.swift */; };
 		12958BC92818016E00310D41 /* StatusNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BC82818016E00310D41 /* StatusNormalCell.swift */; };
+		12958BEC2818292100310D41 /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BEB2818292100310D41 /* WBRefreshControl.swift */; };
+		12958BF028182AB300310D41 /* WBRefreshVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12958BEF28182AB300310D41 /* WBRefreshVIew.xib */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -53,6 +55,8 @@
 		12958BA42817855000310D41 /* StatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		12958BC62817F45F00310D41 /* StatusRetweetedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRetweetedCell.swift; sourceTree = "<group>"; };
 		12958BC82818016E00310D41 /* StatusNormalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusNormalCell.swift; sourceTree = "<group>"; };
+		12958BEB2818292100310D41 /* WBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
+		12958BEF28182AB300310D41 /* WBRefreshVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshVIew.xib; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +114,15 @@
 				12958BA42817855000310D41 /* StatusPictureView.swift */,
 			);
 			path = StatusCell;
+			sourceTree = "<group>";
+		};
+		12958BEA281828D400310D41 /* RefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				12958BEB2818292100310D41 /* WBRefreshControl.swift */,
+				12958BEF28182AB300310D41 /* WBRefreshVIew.xib */,
+			);
+			path = RefreshView;
 			sourceTree = "<group>";
 		};
 		1299887528114F3800E1CDE7 = {
@@ -201,6 +214,7 @@
 		1299889C2811813900E1CDE7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				12958BEA281828D400310D41 /* RefreshView */,
 				12958B9D2816B4DA00310D41 /* StatusCell */,
 				129988A2281182A900E1CDE7 /* HomeViewController.swift */,
 			);
@@ -335,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12958BF028182AB300310D41 /* WBRefreshVIew.xib in Resources */,
 				12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */,
 				1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */,
 			);
@@ -416,6 +431,7 @@
 				12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */,
 				12958B96281697C400310D41 /* Status.swift in Sources */,
 				12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */,
+				12958BEC2818292100310D41 /* WBRefreshControl.swift in Sources */,
 				12958B9A2816ABA800310D41 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

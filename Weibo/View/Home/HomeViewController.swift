@@ -28,7 +28,7 @@ class HomeViewController: VisitorViewController {
         loadData()
     }
     
-    /// 准备表格
+    /// 准备tablview
     private func prepareTableView() {
         // 注册可重用cell
         tableView.register(StatusNormalCell.self, forCellReuseIdentifier: StatusCellNormalId)
@@ -40,11 +40,22 @@ class HomeViewController: VisitorViewController {
         
         // 取消分割线
         tableView.separatorStyle = .none
+        
+        // 下拉刷新控件
+        refreshControl = WBRefreshControl()
+        
+        // 添加监听方法
+        refreshControl?.addTarget(self, action: #selector(self.loadData), for: UIControl.Event.valueChanged)
+        
+        // 上拉刷新视图
+        tableView.tableFooterView = pullupView
     }
     
     /// 加载数据
-    private func loadData() {
+    @objc private func loadData() {
+        self.refreshControl?.beginRefreshing()
         listViewModel.loadStatus { isSuccessed in
+            self.refreshControl?.endRefreshing()
             if !isSuccessed {
                 SVProgressHUD.showInfo(withStatus: "加载数据错误, 请稍后再试")
                 return
@@ -53,6 +64,13 @@ class HomeViewController: VisitorViewController {
             self.tableView.reloadData()
         }
     }
+    
+    // MARK: 懒加载控件
+    private lazy var pullupView: UIActivityIndicatorView = {
+        let indivator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        indivator.startAnimating()
+        return indivator
+    }()
 }
 
 // MARK: -数据源方法
@@ -66,6 +84,11 @@ extension HomeViewController {
         let vm = listViewModel.statusList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: vm.cellId, for: indexPath) as! StatusCell
         cell.viewModel = vm
+        
+        // 上拉刷新数据
+        if indexPath.row == listViewModel.statusList.count - 1 && !pullupView.isAnimating {
+            pullupView.startAnimating()
+        }
         return cell
     }
     
