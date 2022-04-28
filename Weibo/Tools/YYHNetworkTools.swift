@@ -36,6 +36,8 @@ class YYHNetworkTools: AFHTTPSessionManager {
         // 设置反序列化数据格式 系统自动将OC中的NSSet转为Set
         tools.responseSerializer.acceptableContentTypes?.insert("text/html")
         tools.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        tools.responseSerializer.acceptableContentTypes?.insert("multipart/form-data")
+//        tools.responseSerializer.acceptableContentTypes?.insert("text/json")
         return tools
     }()
     
@@ -49,17 +51,45 @@ class YYHNetworkTools: AFHTTPSessionManager {
     }
 }
 
+// MARK: - 发布微博
+/// seet [https://open.weibo.com/wiki/2/statuses/share](https://open.weibo.com/wiki/2/statuses/share)
+extension YYHNetworkTools {
+    func sendStatus(status: String, finished: @escaping YYHRequestCllBack) {
+        // 判断token是否有效
+        guard var params = tokenDict else {
+            // 如果字典为nil, 通知调用方， token无效
+            finished(nil, NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message": "token为空"]))
+            return
+        }
+        
+        // 设置参数
+        params["status"] = status.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlString = "https://api.weibo.com/2/statuses/share.json"
+//        responseSerializer = AFHTTPResponseSerializer()
+        request(method: .POST, URLString: urlString, parameters: params, finished: finished)
+    }
+}
+
+
 // MARK: - 微博数据相关方法
 extension YYHNetworkTools {
     
     /// 加载主页微博数据
     /// see [https://api.weibo.com/2/statuses/home_timeline.json](https://api.weibo.com/2/statuses/home_timeline.json)
-    func loadStatus(finished: @escaping YYHRequestCllBack) {
-        guard let params = tokenDict else {
+    func loadStatus(since_id: Int, max_id: Int,finished: @escaping YYHRequestCllBack) {
+        guard var params = tokenDict else {
             // 如果字典为nil, 通知调用方， token无效
             finished(nil, NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message": "token为空"]))
             return
         }
+        
+        //判断下拉
+        if since_id > 0 {
+            params["since_id"] = since_id
+        } else if max_id > 0 {
+            params["max_id"] = max_id - 1
+        }
+        
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         request(method: NetworkRequestMethod.GET, URLString: urlString, parameters: params, finished: finished)
     }
@@ -117,7 +147,7 @@ extension YYHNetworkTools {
         }, success: { _, result in
             finished(result, nil)
         }, failure: { _, error in
-            print(error)
+//            print(error)
             finished(nil, error)
         })?.resume()
 

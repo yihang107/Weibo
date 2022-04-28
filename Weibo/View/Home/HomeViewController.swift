@@ -42,7 +42,7 @@ class HomeViewController: VisitorViewController {
         tableView.separatorStyle = .none
         
         // 下拉刷新控件
-        refreshControl = WBRefreshControl()
+        refreshControl = UIRefreshControl()
         
         // 添加监听方法
         refreshControl?.addTarget(self, action: #selector(self.loadData), for: UIControl.Event.valueChanged)
@@ -54,8 +54,10 @@ class HomeViewController: VisitorViewController {
     /// 加载数据
     @objc private func loadData() {
         self.refreshControl?.beginRefreshing()
-        listViewModel.loadStatus { isSuccessed in
+        listViewModel.loadStatus(isPullup: pullupView.isAnimating) { isSuccessed in
+            // 关闭下拉刷新
             self.refreshControl?.endRefreshing()
+            self.pullupView.stopAnimating()
             if !isSuccessed {
                 SVProgressHUD.showInfo(withStatus: "加载数据错误, 请稍后再试")
                 return
@@ -68,7 +70,6 @@ class HomeViewController: VisitorViewController {
     // MARK: 懒加载控件
     private lazy var pullupView: UIActivityIndicatorView = {
         let indivator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        indivator.startAnimating()
         return indivator
     }()
 }
@@ -86,8 +87,9 @@ extension HomeViewController {
         cell.viewModel = vm
         
         // 上拉刷新数据
-        if indexPath.row == listViewModel.statusList.count - 1 && !pullupView.isAnimating {
+        if indexPath.row == listViewModel.statusList.count - 1 && !pullupView.isAnimating && listViewModel.statusList.count != 0 {
             pullupView.startAnimating()
+            loadData()
         }
         return cell
     }

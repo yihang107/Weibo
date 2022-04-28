@@ -14,8 +14,12 @@ class StatusListViewModel {
     lazy var statusList = [StatusViewModel]()
     
     /// 加载数据
-    func loadStatus(finished: @escaping(_ isSuccessed: Bool)->()) {
-        YYHNetworkTools.sharedTools.loadStatus { result, error in
+    func loadStatus(isPullup: Bool, finished: @escaping(_ isSuccessed: Bool)->()) {
+        // 下拉刷新
+        let since_id = isPullup ? 0 : statusList.first?.status.id ?? 0
+        // 上拉刷新
+        let max_id = isPullup ? statusList.last?.status.id  ?? 0 : 0
+        YYHNetworkTools.sharedTools.loadStatus(since_id: since_id, max_id: max_id) { result, error in
             if error != nil {
                 print("主页微博数据请求出错")
                 finished(false)
@@ -40,8 +44,12 @@ class StatusListViewModel {
                 dataList.append(StatusViewModel(status: Status(dict: dic)))
             }
             
-            self.statusList = dataList + self.statusList
-            print(self.statusList)
+            if isPullup {
+                self.statusList = self.statusList + dataList
+            } else {
+                self.statusList = dataList + self.statusList
+            }
+//            print(self.statusList)
             
             // 缓存单张图片
             self.cacheSingleImage(dataList: dataList, finished: finished)

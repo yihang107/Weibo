@@ -15,6 +15,15 @@ class MainViewController: UITabBarController {
     /// 点击撰写按钮
     @objc private func clickComposeButton() {
         print("点我了")
+        // 判断用户是否登录
+        var vc: UIViewController
+        if UserAccountViewModel.sharedUserAccount.userLogin {
+            vc = ComposeViewController()
+        } else {
+            vc = OAuthViewController()
+        }
+        present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+        
     }
     // MARK: 视图生命周期
     override func viewDidLoad() {

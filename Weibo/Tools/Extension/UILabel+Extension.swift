@@ -18,5 +18,7 @@ extension UILabel {
         font = UIFont.systemFont(ofSize: fontSize)
         numberOfLines = 0
         textAlignment = NSTextAlignment.center
+        
+        sizeToFit()
     }
 }
