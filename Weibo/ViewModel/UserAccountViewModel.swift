@@ -78,11 +78,11 @@ extension UserAccountViewModel {
     
     func loadAccessToken(code: String, finished: @escaping(_ isSuccessed: Bool)->()) {
         YYHNetworkTools.sharedTools.loadAccessToken(code: code) { result, error in
-//            if error != nil {
-//                print("没有获取到accessToken")
-//                finished(false)
-//                return
-//            }
+            if error != nil {
+                print("没有获取到accessToken")
+                finished(false)
+                return
+            }
 //            self.account = UserAccount.init(dict: ["access_token": "fadsf", "uid": "1404376560", "expires_in": 157679999])
             self.account = UserAccount(dict: result as! [String : Any])
             self.loadUserInfo(account: self.account!, finished: finished)

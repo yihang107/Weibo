@@ -23,11 +23,13 @@ class ComposeViewController: UIViewController {
         
         YYHNetworkTools.sharedTools.sendStatus(status: text!) { result, error in
             if error != nil {
-                print(error)
+//                print(error)
+                self.dismiss(animated: true, completion: nil)
                 return
             }
             
-            print(result)
+//            print(result)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

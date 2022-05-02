@@ -49,6 +49,8 @@ class StatusListViewModel {
             } else {
                 self.statusList = dataList + self.statusList
             }
+            
+            self.statusList = YYHNetworkTools.sharedTools.fakeStashStatus + self.statusList
 //            print(self.statusList)
             
             // 缓存单张图片
