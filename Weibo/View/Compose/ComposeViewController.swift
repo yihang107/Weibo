@@ -9,6 +9,8 @@ import UIKit
 
 // MARK: 写微博控制器
 class ComposeViewController: UIViewController {
+    private lazy var picturePickerController = PicturePickerController()
+    
     // MARK: 监听方法
     /// 关闭
     @objc private func close() {
@@ -20,8 +22,8 @@ class ComposeViewController: UIViewController {
     @objc private func postStatus() {
         print("发布微博")
         let text = textView.text
-        
-        YYHNetworkTools.sharedTools.sendStatus(status: text!, image: nil) { result, error in
+        let image = picturePickerController.pictures.last
+        YYHNetworkTools.sharedTools.sendStatus(status: text!, image: image) { result, error in
             if error != nil {
 //                print(error)
                 self.dismiss(animated: true, completion: nil)
@@ -36,6 +38,27 @@ class ComposeViewController: UIViewController {
     /// 选择图片
     @objc private func selectImage() {
         print("选择图片")
+        
+        textView.resignFirstResponder()
+        
+        if picturePickerController.view.frame.height > 0 {
+            return
+        }
+        
+        picturePickerController.view.snp.updateConstraints { make in
+            make.height.equalTo(view.bounds.height * 0.6)
+        }
+        
+        textView.snp.remakeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(40)
+            make.left.equalTo(view.snp.left).offset(10)
+            make.right.equalTo(view.snp.right).offset(-10)
+            make.bottom.equalTo(picturePickerController.view.snp.top)
+        }
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     @objc private func keyboardChanged(n: Notification) {
@@ -98,10 +121,12 @@ class ComposeViewController: UIViewController {
 // MARK: 设置UI
 private extension ComposeViewController {
     func setupUI() {
+        
         view.backgroundColor = UIColor.white
         prepareNavigationbar()
         prepareToolbar()
         prepareTextView()
+        preparePicturePicker()
 //        textView.inputAccessoryView = toolbar
     }
     
@@ -132,6 +157,8 @@ private extension ComposeViewController {
     
     /// 准备文本视图
     private func prepareTextView() {
+        textView.automaticallyAdjustsScrollIndicatorInsets = false
+        
         view.addSubview(textView)
 //        view.addSubview(placeHolderLabel)
         textView.snp.makeConstraints { make in
@@ -181,5 +208,23 @@ private extension ComposeViewController {
         }
         items.removeLast()
         toolbar.items = items
+    }
+    
+    /// 准备照片选择控制器
+    private func preparePicturePicker() {
+        // 添加子控制器 确保响应者链条完整
+//        addChild(picturePickerController)
+        
+        // 添加视图
+//        view.addSubview(picturePickerController.view)
+//        view.bringSubviewToFront(toolbar)
+        view.insertSubview(picturePickerController.view, belowSubview: toolbar)
+        // 自动布局
+        picturePickerController.view.snp.makeConstraints { make in
+            make.bottom.equalTo(view.snp.bottom)
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.height.equalTo(0)
+        }
     }
 }

@@ -22,6 +22,8 @@
 		12958BEC2818292100310D41 /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958BEB2818292100310D41 /* WBRefreshControl.swift */; };
 		12958BF028182AB300310D41 /* WBRefreshVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12958BEF28182AB300310D41 /* WBRefreshVIew.xib */; };
 		12958C282819230200310D41 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C272819230200310D41 /* ComposeViewController.swift */; };
+		12958C752820D40400310D41 /* PicturePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C742820D40400310D41 /* PicturePickerController.swift */; };
+		12958C772821068E00310D41 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C762821068E00310D41 /* UIImage+Extension.swift */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -59,6 +61,8 @@
 		12958BEB2818292100310D41 /* WBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
 		12958BEF28182AB300310D41 /* WBRefreshVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshVIew.xib; sourceTree = "<group>"; };
 		12958C272819230200310D41 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		12958C742820D40400310D41 /* PicturePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePickerController.swift; sourceTree = "<group>"; };
+		12958C762821068E00310D41 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +139,14 @@
 			path = Compose;
 			sourceTree = "<group>";
 		};
+		12958C732820D3CF00310D41 /* PicturePicker */ = {
+			isa = PBXGroup;
+			children = (
+				12958C742820D40400310D41 /* PicturePickerController.swift */,
+			);
+			path = PicturePicker;
+			sourceTree = "<group>";
+		};
 		1299887528114F3800E1CDE7 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +217,7 @@
 		1299889A2811810F00E1CDE7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				12958C732820D3CF00310D41 /* PicturePicker */,
 				129988AA281260F600E1CDE7 /* Extension */,
 				129988DB2812BCF600E1CDE7 /* Common.swift */,
 				129989552813D8F300E1CDE7 /* YYHNetworkTools.swift */,
@@ -262,6 +275,7 @@
 				129988AB2812613B00E1CDE7 /* UIButton+Extension.swift */,
 				129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */,
 				129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */,
+				12958C762821068E00310D41 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -425,6 +439,7 @@
 				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
 				12958B9F2816B50F00310D41 /* StatusCell.swift in Sources */,
 				12958B982816A72200310D41 /* StatusListViewModel.swift in Sources */,
+				12958C752820D40400310D41 /* PicturePickerController.swift in Sources */,
 				12958BC92818016E00310D41 /* StatusNormalCell.swift in Sources */,
 				129988AF28126AF400E1CDE7 /* VisitorViewController.swift in Sources */,
 				12958B942816513200310D41 /* WelcomeViewController.swift in Sources */,
@@ -441,6 +456,7 @@
 				12958BA52817855000310D41 /* StatusPictureView.swift in Sources */,
 				12958BA12816B54B00310D41 /* StatusCellTopView.swift in Sources */,
 				12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */,
+				12958C772821068E00310D41 /* UIImage+Extension.swift in Sources */,
 				12958B96281697C400310D41 /* Status.swift in Sources */,
 				12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */,
 				12958BEC2818292100310D41 /* WBRefreshControl.swift in Sources */,
