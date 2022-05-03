@@ -50,16 +50,23 @@ class YYHNetworkTools: AFHTTPSessionManager {
 /// 发布的微博中需要带至少一个 应用绑定的安全域名  我们不具备域名 微博验证不同过 所有一直返回400
 /// seet [https://open.weibo.com/wiki/2/statuses/share](https://open.weibo.com/wiki/2/statuses/share)
 extension YYHNetworkTools {
-    func sendStatus(status: String, finished: @escaping YYHRequestCllBack) {
+    func sendStatus(status: String, image: UIImage?, finished: @escaping YYHRequestCllBack) {
         // 判断token是否有效
         // 设置参数 编码文本
 //        if let encodeString = status.data(using: .utf8) {
 //            params["status"] = encodeString
 //        }
-        let params = ["status": status]
-        let urlString = "https://api.weibo.com/2/statuses/share.json"
-//        responseSerializer = AFHTTPResponseSerializer()
-        tokenRequest(method: .POST, URLString: urlString, parameters: params, finished: finished)
+        var params = ["status": status]
+        if image == nil {
+            let urlString = "https://api.weibo.com/2/statuses/share.json"
+    //        responseSerializer = AFHTTPResponseSerializer()
+            tokenRequest(method: .POST, URLString: urlString, parameters: params, finished: finished)
+        } else {
+            let urlString = ""
+            let imgData = image?.pngData()
+            upload(URLString: urlString, data: imgData!, name: "pic", parameters: params, finished: finished)
+        }
+        
         let statusDic = ["text": status,
                          "pic_urls": [],
                          "created_at": "刚刚",
@@ -125,6 +132,22 @@ extension YYHNetworkTools {
 //        responseSerializer = AFHTTPResponseSerializer()
     }
     
+    /// 参数字典追加token
+    /// inout 关键字 相当于OC中传递对象地址
+    private func appendToken(params: inout [String : Any]?) -> Bool {
+        guard let token = UserAccountViewModel.sharedUserAccount.accessToken else {
+            return false
+        }
+        
+        var newParameters = params
+        if newParameters == nil {
+            newParameters = [String : Any]()
+        }
+        newParameters!["access_token"] = token
+        params = newParameters
+        return true
+    }
+    
     /// 请求中添加token参数
     func tokenRequest(method: NetworkRequestMethod, URLString: String, parameters: [String: Any]? , finished:  @escaping YYHRequestCllBack) {
         guard let token = UserAccountViewModel.sharedUserAccount.accessToken else {
@@ -144,7 +167,7 @@ extension YYHNetworkTools {
 
 // MARK: 封装AFN网络方法
 extension YYHNetworkTools {
-    /// 网络请求
+    /// 一般网络请求
     private func request(method: NetworkRequestMethod, URLString: String, parameters: [String: Any]? , finished:  @escaping YYHRequestCllBack) {
         dataTask(withHTTPMethod: method.rawValue, urlString: URLString, parameters: parameters, headers: nil, uploadProgress: nil, downloadProgress: { _ in
             
@@ -154,6 +177,48 @@ extension YYHNetworkTools {
 //            print(error)
             finished(nil, error)
         })?.resume()
+
+    }
+    
+    ///  上传文件
+    private func upload(URLString: String, data: Data, name: String, parameters: [String: Any]?, finished: @escaping YYHRequestCllBack) {
+        guard let token = UserAccountViewModel.sharedUserAccount.accessToken else {
+            finished(nil, NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message": "token过期"]))
+            return
+        }
+        
+        var newParameters = parameters
+        if newParameters == nil {
+            newParameters = [String : Any]()
+        }
+        newParameters!["access_token"] = token
+        
+        self.post(URLString, parameters: parameters, headers: nil) { formData in
+            /**
+             data 上传文件的二进制
+             name 服务器定义的字段名
+             fileName 保存在服务器的文件名  通常可以乱写 后台会做处理
+                根据上传的文件, 生成缩略图，中等图, 高清图
+                保存在不同路径, 并自动生成文件名
+                fileName是HTTP协议定义的属性
+             mimeType/ ContentType: 客户端告诉服务器, 二进制数据的准确类型
+                大类型/小类型
+                    iamge/jpg  image/git img/png
+                    text/plain text/html
+                    applictaion/json
+                不想告诉图片服务器准确的类型
+                    application/octet-stream
+             
+             */
+            formData.appendPart(withFileData: data, name: name, fileName: "xxx", mimeType: "application/octet-stream")
+        } progress: { _ in
+            
+        } success: { _, result in
+            finished(result, nil)
+        } failure: { _, error in
+            print(error)
+            finished(nil, error)
+        }
 
     }
 }

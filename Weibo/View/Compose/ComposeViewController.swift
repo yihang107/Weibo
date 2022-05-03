@@ -21,7 +21,7 @@ class ComposeViewController: UIViewController {
         print("发布微博")
         let text = textView.text
         
-        YYHNetworkTools.sharedTools.sendStatus(status: text!) { result, error in
+        YYHNetworkTools.sharedTools.sendStatus(status: text!, image: nil) { result, error in
             if error != nil {
 //                print(error)
                 self.dismiss(animated: true, completion: nil)
@@ -76,6 +76,7 @@ class ComposeViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
     // MARK: 懒加载控件
     /// 工具条
     private lazy var toolbar = UIToolbar()
