@@ -75,7 +75,10 @@ class StatusListViewModel {
             // 如果设置了retryFailed, 整个block会结束一次, 会做一次出组
             // SDWebImage会重新执行下载, 下载完成后, 再次调用block中的代码
             // 再次出组, 造成调度组的不匹配
-            SDWebImageManager.shared.loadImage(with: url, options: [SDWebImageOptions.refreshCached], progress: nil) { image, _, _, _, _, _ in
+            // refreshCached 第一次发器玩过请求, 把缓存图片的一个hash值发送给服务器
+            // 服务器比对hash，如果和服务器内容一致, 服务器的状态码304, 表示服务器内容没有变化
+            // 不是304会再次发起网络请求，获取更新后的内容
+            SDWebImageManager.shared.loadImage(with: url, options: [], progress: nil) { image, _, _, _, _, _ in
                 // 单张图片下载完成
                 group.leave()
             }
