@@ -18,12 +18,12 @@ class PhotoBrowserViewController: UIViewController {
     
     // MARK: 监听方法
     @objc private func close() {
-        print("关闭")
+//        print("关闭")
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func save() {
-        print("保存")
+//        print("保存")
         let cell = collectionView.visibleCells[0] as! PhotoBrowserCollectionViewCell
         // 因为网络问题没有图片
         guard let image = cell.imageView.image else {
@@ -150,5 +150,25 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
 extension PhotoBrowserViewController: PhotoBrowserCollectionViewCellDelegate {
     func photoBrowserCellDidTapImage() {
         close()
+    }
+}
+
+// MARK: 解除转场动画协议
+extension PhotoBrowserViewController: PhotoBrowserDismissDeleagte {
+    func imageViewForDismiss() -> UIImageView {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        
+        let cell = collectionView.visibleCells[0] as! PhotoBrowserCollectionViewCell
+        iv.image = cell.imageView.image
+        iv.frame = cell.scrollView.convert(cell.imageView.frame, to: UIApplication.shared.keyWindow)
+        
+//        UIApplication.shared.keyWindow?.addSubview(iv)
+        return iv
+    }
+    
+    func indexPathForDismiss() -> IndexPath {
+        return collectionView.indexPathsForVisibleItems[0]
     }
 }

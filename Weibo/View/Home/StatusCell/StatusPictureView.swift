@@ -129,9 +129,62 @@ extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegat
         NotificationCenter.default.post(name: NSNotification.Name(WBStatusSelectPhotoNotification),
                                         object: self,
                                         userInfo: userInfo)
+        photoBrowserPresentFromRect(indexPath: indexPath)
+        photoBrowserPresentToRect(indexPath: indexPath)
     }
 }
 
+
+// MARK: 照片查看器转场展现
+extension StatusPictureView: PhotoBrowserPresentDelegate {
+    /// 创建一个UIImageView参与动画
+    func imageViewForPresent(indexPath: IndexPath) -> UIImageView {
+        let imgView = UIImageView()
+        imgView.contentMode = .scaleAspectFill
+        imgView.clipsToBounds = true
+        
+        // SDWebImage如果已经存在本地缓存, 不会发起网络请求
+        if let url = viewModel?.thumbnailUrls?[indexPath.item] {
+            imgView.setImageWith(url)
+        }
+        return imgView
+    }
+    
+    /// 动画起始位置
+    func photoBrowserPresentFromRect(indexPath: IndexPath) -> CGRect {
+        let cell = self.cellForItem(at: indexPath)
+        let rect = self.convert(cell!.frame, to: UIApplication.shared.keyWindow)
+        return rect
+    }
+    
+
+    /// 目标位置
+    func photoBrowserPresentToRect(indexPath: IndexPath) -> CGRect {
+        // 根据缩略图大小等比例计算目标位置
+        guard let key = viewModel?.thumbnailUrls?[indexPath.item].absoluteString else {
+            return CGRect.zero
+        }
+        
+        var rect: CGRect = CGRect.zero
+        SDWebImageManager.shared.imageCache.queryImage(forKey: key, options: [], context: nil) { image, _, _ in
+            guard let img = image else {
+                return
+            }
+            let w = UIScreen.main.bounds.width
+            let h = img.size.height * w / img.size.width
+            
+            let screenHeight = UIScreen.main.bounds.height
+            var y: CGFloat = 0
+            if h < screenHeight {
+                y = (screenHeight - h) / 2.0
+            }
+            
+            rect = CGRect(x: 0, y: y, width: w, height: h)
+        }
+        
+        return rect
+    }
+}
 
 private class StatusPictureViewCell: UICollectionViewCell {
     var imageURL: URL? {

@@ -36,11 +36,16 @@ class HomeViewController: VisitorViewController {
             guard let urls = n.userInfo?[WBStatusSelectedPhotoURLsKey] as? [URL] else {
                 return
             }
+            
+            guard let cell = n.object as? PhotoBrowserPresentDelegate else {
+                return
+            }
 //            print(indexPath)
 //            print(urls)
             let vc = PhotoBrowserViewController(urls: urls, indexPath: indexPath)
             vc.modalPresentationStyle = .custom
             vc.transitioningDelegate = self?.photoBrowserAnimation
+            self?.photoBrowserAnimation.setDelegateParams(presentDelegate: cell, indexPath: indexPath as IndexPath, dismissDeleagte: vc)
             self?.present(vc, animated: true, completion: nil)
         }
     }
