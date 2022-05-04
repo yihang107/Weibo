@@ -46,7 +46,7 @@ class ComposeViewController: UIViewController {
         }
         
         picturePickerController.view.snp.updateConstraints { make in
-            make.height.equalTo(view.bounds.height * 0.6)
+            make.height.equalTo(view.bounds.height * 0.65)
         }
         
         textView.snp.remakeConstraints { make in

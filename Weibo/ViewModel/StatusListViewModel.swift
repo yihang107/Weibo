@@ -22,6 +22,7 @@ class StatusListViewModel {
         YYHNetworkTools.sharedTools.loadStatus(since_id: since_id, max_id: max_id) { result, error in
             if error != nil {
                 print("主页微博数据请求出错")
+                print(error!)
                 finished(false)
                 return
             }
@@ -71,7 +72,10 @@ class StatusListViewModel {
             let url = vm.thumbnailUrls![0]
             // 入组
             group.enter()
-            SDWebImageManager.shared.loadImage(with: url, options: [SDWebImageOptions.retryFailed, SDWebImageOptions.refreshCached], progress: nil) { image, _, _, _, _, _ in
+            // 如果设置了retryFailed, 整个block会结束一次, 会做一次出组
+            // SDWebImage会重新执行下载, 下载完成后, 再次调用block中的代码
+            // 再次出组, 造成调度组的不匹配
+            SDWebImageManager.shared.loadImage(with: url, options: [SDWebImageOptions.refreshCached], progress: nil) { image, _, _, _, _, _ in
                 // 单张图片下载完成
                 group.leave()
             }

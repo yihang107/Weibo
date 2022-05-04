@@ -24,6 +24,9 @@
 		12958C282819230200310D41 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C272819230200310D41 /* ComposeViewController.swift */; };
 		12958C752820D40400310D41 /* PicturePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C742820D40400310D41 /* PicturePickerController.swift */; };
 		12958C772821068E00310D41 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C762821068E00310D41 /* UIImage+Extension.swift */; };
+		12958C7A28212BE300310D41 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C7928212BE300310D41 /* PhotoBrowserViewController.swift */; };
+		12958C7C2821351A00310D41 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C7B2821351A00310D41 /* UIColor+Extension.swift */; };
+		12958C7E2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C7D2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -63,6 +66,9 @@
 		12958C272819230200310D41 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		12958C742820D40400310D41 /* PicturePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePickerController.swift; sourceTree = "<group>"; };
 		12958C762821068E00310D41 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		12958C7928212BE300310D41 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		12958C7B2821351A00310D41 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		12958C7D2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCollectionViewCell.swift; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +153,15 @@
 			path = PicturePicker;
 			sourceTree = "<group>";
 		};
+		12958C782821223100310D41 /* PhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				12958C7928212BE300310D41 /* PhotoBrowserViewController.swift */,
+				12958C7D2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift */,
+			);
+			path = PhotoViewer;
+			sourceTree = "<group>";
+		};
 		1299887528114F3800E1CDE7 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +232,7 @@
 		1299889A2811810F00E1CDE7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				12958C782821223100310D41 /* PhotoViewer */,
 				12958C732820D3CF00310D41 /* PicturePicker */,
 				129988AA281260F600E1CDE7 /* Extension */,
 				129988DB2812BCF600E1CDE7 /* Common.swift */,
@@ -276,6 +292,7 @@
 				129988D72812AFD400E1CDE7 /* UILabel+Extension.swift */,
 				129988D92812B1A200E1CDE7 /* UIImageView+Extension.swift */,
 				12958C762821068E00310D41 /* UIImage+Extension.swift */,
+				12958C7B2821351A00310D41 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -435,6 +452,7 @@
 				129988D82812AFD400E1CDE7 /* UILabel+Extension.swift in Sources */,
 				129988A7281182EE00E1CDE7 /* DiscoverViewController.swift in Sources */,
 				129988DC2812BCF600E1CDE7 /* Common.swift in Sources */,
+				12958C7A28212BE300310D41 /* PhotoBrowserViewController.swift in Sources */,
 				129988A92811831800E1CDE7 /* ProfileViewController.swift in Sources */,
 				129988A3281182A900E1CDE7 /* HomeViewController.swift in Sources */,
 				12958B9F2816B50F00310D41 /* StatusCell.swift in Sources */,
@@ -449,6 +467,7 @@
 				129989562813D8F300E1CDE7 /* YYHNetworkTools.swift in Sources */,
 				12958BA32816B56500310D41 /* StatusCellBottomView.swift in Sources */,
 				129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */,
+				12958C7C2821351A00310D41 /* UIColor+Extension.swift in Sources */,
 				1299895D2815413000E1CDE7 /* UserAccountViewModel.swift in Sources */,
 				129988AC2812613B00E1CDE7 /* UIButton+Extension.swift in Sources */,
 				1299895B281519BB00E1CDE7 /* UserAccount.swift in Sources */,
@@ -458,6 +477,7 @@
 				12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */,
 				12958C772821068E00310D41 /* UIImage+Extension.swift in Sources */,
 				12958B96281697C400310D41 /* Status.swift in Sources */,
+				12958C7E2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift in Sources */,
 				12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */,
 				12958BEC2818292100310D41 /* WBRefreshControl.swift in Sources */,
 				12958B9A2816ABA800310D41 /* User.swift in Sources */,

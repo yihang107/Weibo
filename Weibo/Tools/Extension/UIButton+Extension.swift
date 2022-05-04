@@ -22,11 +22,11 @@ extension UIButton {
         sizeToFit()
     }
     
-    convenience init(title: String, color: UIColor) {
+    convenience init(title: String, color: UIColor, bgColor: UIColor? = UIColor.white) {
         self.init()
         setTitle(title, for: UIControl.State.normal)
         setTitleColor(color, for: UIControl.State.normal)
-        backgroundColor = UIColor.white
+        backgroundColor = bgColor
         layer.cornerRadius = 10
     }
     

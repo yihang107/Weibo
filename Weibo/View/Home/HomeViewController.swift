@@ -26,6 +26,26 @@ class HomeViewController: VisitorViewController {
         }
         prepareTableView()
         loadData()
+        
+        // 注册通知 如果使用通知中心的block监听, 其中的self一定要弱引用
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(WBStatusSelectPhotoNotification), object: nil, queue: nil) { [weak self] n in
+            guard let indexPath = n.userInfo?[WBStatusSelectedPhotoIndexPathKey] as? NSIndexPath else {
+                return;
+            }
+            
+            guard let urls = n.userInfo?[WBStatusSelectedPhotoURLsKey] as? [URL] else {
+                return
+            }
+            print(indexPath)
+            print(urls)
+            
+            let vc = PhotoBrowserViewController(urls: urls, indexPath: indexPath)
+            self?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     /// 准备tablview

@@ -18,7 +18,7 @@ class StatusPictureView: UICollectionView {
             reloadData()
         }
     }
-    // MARK: -构造函数
+    // MARK: 构造函数
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = StatusPictureViewItemMargin
@@ -29,6 +29,7 @@ class StatusPictureView: UICollectionView {
         
         // 设置数据源
         dataSource = self
+        delegate = self
         
         // 注册可重用cell
         register(StatusPictureViewCell.self, forCellWithReuseIdentifier: StatusPictureCellId)
@@ -105,8 +106,8 @@ extension StatusPictureView {
     }
 }
 
-// MARK: 数据源
-extension StatusPictureView: UICollectionViewDataSource {
+// MARK: 数据源和代理
+extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        print(viewModel?.thumbnailUrls?.count ?? 0)
         return viewModel?.thumbnailUrls?.count ?? 0
@@ -117,6 +118,17 @@ extension StatusPictureView: UICollectionViewDataSource {
 //        cell.backgroundColor = UIColor.orange
         cell.imageURL = viewModel!.thumbnailUrls![indexPath.item]
         return cell
+    }
+    
+    /// 选中照片
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("点击照片")
+        // 传给用户当前URL数组 当前索引
+        let userInfo = [WBStatusSelectedPhotoIndexPathKey: indexPath,
+                             WBStatusSelectedPhotoURLsKey: viewModel!.thumbnailUrls!] as [String : Any]
+        NotificationCenter.default.post(name: NSNotification.Name(WBStatusSelectPhotoNotification),
+                                        object: self,
+                                        userInfo: userInfo)
     }
 }
 

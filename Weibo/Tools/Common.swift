@@ -12,6 +12,13 @@ import UIKit
 /// 全局通知定义
 let WBSwitchRootViewControllerNotification = "WBSwitchRootViewControllerNotification"
 
+/// 选中查看照片
+let WBStatusSelectPhotoNotification = "WBStatusSelectPhotoNotification"
+/// 选中照片的键值
+let WBStatusSelectedPhotoIndexPathKey = "WBStatusSelectedPhotoIndexPathKey"
+let WBStatusSelectedPhotoURLsKey = "WBStatusSelectedPhotoURLsKey"
+
+
 /// 全局外观渲染颜色
 let WBAppearanceTintColor =  UIColor.orange
 
