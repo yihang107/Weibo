@@ -7,9 +7,27 @@
 
 import UIKit
 import SDWebImage
+import SVProgressHUD
+
+protocol PhotoBrowserCollectionViewCellDelegate: NSObjectProtocol {
+    func photoBrowserCellDidTapImage()
+}
 
 /// 照片浏览cell
-class PhotoBrowserCollectionViewCell: UICollectionViewCell {
+class PhotoBrowserCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
+    weak var photoBrowserCellDelegate: PhotoBrowserCollectionViewCellDelegate?
+    // MARK: 监听方法
+    @objc func close() {
+        photoBrowserCellDelegate?.photoBrowserCellDidTapImage()
+    }
+    /*
+     手势识别是对 touch的封装。UIScrollView支持捏合手势。做过手势监听的控件, 都会屏蔽掉touch
+     */
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+//        return true
+//    }
+    
+    /// 图像地址
     var imageURL: URL? {
         didSet {
             guard let url = imageURL else {
@@ -19,16 +37,27 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
             resetScrollView()
             
             // 从磁盘加载缩略图的图像
-            imageView.image = SDWebImageManager.shared.imageCache.queryImage(forKey: url.absoluteString, options: [SDWebImageOptions.refreshCached, SDWebImageOptions.retryFailed], context: nil, completion: nil) as? UIImage
+            let placeholder = SDWebImageManager.shared.imageCache.queryImage(forKey: url.absoluteString, options: [], context: nil, completion: nil) as? UIImage
+            imageView.image = placeholder
             imageView.sizeToFit()
             imageView.center = scrollView.center
             
-            imageView.sd_setImage(with: orginalURL(url: url)
-            ) { image, _, _, _ in
-                // 自动设置大小
-//                self.imageView.sizeToFit()
+            imageView.sd_setImage(with: orginalURL(url: url), placeholderImage: placeholder, options: [SDWebImageOptions.retryFailed, SDWebImageOptions.refreshCached]) { current, total, _ in
+                
+            } completed: { image, _, _, _ in
+                if image == nil {
+                    SVProgressHUD.showError(withStatus: "您的网络不给力, 请确认网络后重试")
+                    return
+                }
                 self.setPosition(image: image)
             }
+
+//            imageView.sd_setImage(with: orginalURL(url: url)
+//            ) { image, _, _, _ in
+//                // 自动设置大小
+////                self.imageView.sizeToFit()
+//                self.setPosition(image: image)
+//            }
         }
     }
     
@@ -67,6 +96,7 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
     }
     
     private func resetScrollView() {
+        imageView.transform = CGAffineTransform.identity
         scrollView.contentInset = UIEdgeInsets.zero
         scrollView.contentOffset = CGPoint.zero
         scrollView.contentSize = CGSize.zero
@@ -94,10 +124,18 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
         scrollView.delegate = self;
         scrollView.minimumZoomScale = 0.5
         scrollView.maximumZoomScale = 2.0
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.close))
+        tap.delegate = self
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
+//        scrollView.addGestureRecognizer(tap)
+        scrollView.delaysContentTouches = false
+        scrollView.canCancelContentTouches = true
     }
     // MARK: 懒加载控件
-    private lazy var scrollView: UIScrollView = UIScrollView()
-    private lazy var imageView: UIImageView = UIImageView()
+    lazy var scrollView: UIScrollView  = UIScrollView()
+    lazy var imageView: UIImageView = UIImageView()
 }
 
 // MARK: UIScrollViewDelegate

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+import SVProgressHUD
 
 /// 可重用cell标识符号
 private let PhotoBrowserCellId = "PhotoBrowserCellId"
@@ -22,6 +24,23 @@ class PhotoBrowserViewController: UIViewController {
     
     @objc private func save() {
         print("保存")
+        let cell = collectionView.visibleCells[0] as! PhotoBrowserCollectionViewCell
+        // 因为网络问题没有图片
+        guard let image = cell.imageView.image else {
+            return
+        }
+        
+        // 保存图片
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(image:didFinishSvaingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func image(image: UIImage, didFinishSvaingWithError error: NSError?, contextInfo: Any?) {
+        if error != nil {
+            SVProgressHUD.showInfo(withStatus: "保存失败")
+        } else {
+            SVProgressHUD.showSuccess(withStatus: "保存成功")
+        }
+        
     }
     
     // MARK: 构造函数
@@ -37,6 +56,8 @@ class PhotoBrowserViewController: UIViewController {
     }
     
     // MARK: 生命周期
+    // 和xib和sb等价 主要职责创建视图层次结构 loadView执行完毕 view上的元素要全部创建完成
+    // 如果view == nil 系统会在调用view的getter方法时, 自动调用loadView 创建view
     override func loadView() {
         // 设置根视图
         var rect = UIScreen.main.bounds
@@ -44,8 +65,13 @@ class PhotoBrowserViewController: UIViewController {
         view = UIView(frame: rect)
         self.setupUI()
     }
+    
+    // 视图加载完成被调用 loadView执行完毕被执行
+    // 主要做数据加载 或其他处理
+    // 常见没有实现loadView， 所有建立子控件的代码都在viewDidLoad中
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.scrollToItem(at: currentIndexPath as IndexPath, at: .centeredHorizontally, animated: false)
     }
     
     // MARK: 懒加载控件
@@ -84,7 +110,7 @@ private extension PhotoBrowserViewController {
         
         saveButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.snp.bottom).offset(-20)
-            make.right.equalTo(view.snp.right).offset(-20)
+            make.right.equalTo(view.snp.right).offset(-40)
             make.size.equalTo(CGSize(width: 100, height: 36))
         }
         
@@ -113,8 +139,16 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoBrowserCellId, for: indexPath) as! PhotoBrowserCollectionViewCell
         cell.backgroundColor = UIColor.black
         cell.imageURL = urls[indexPath.item]
+        cell.photoBrowserCellDelegate = self
         return cell
     }
-    
-    
+}
+
+
+
+// MARK: PhotoBrowserCollectionViewCellDelegate
+extension PhotoBrowserViewController: PhotoBrowserCollectionViewCellDelegate {
+    func photoBrowserCellDidTapImage() {
+        close()
+    }
 }

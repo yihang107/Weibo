@@ -27,6 +27,7 @@
 		12958C7A28212BE300310D41 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C7928212BE300310D41 /* PhotoBrowserViewController.swift */; };
 		12958C7C2821351A00310D41 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C7B2821351A00310D41 /* UIColor+Extension.swift */; };
 		12958C7E2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C7D2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift */; };
+		12958C862822266D00310D41 /* PhotoBrowserAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958C852822266D00310D41 /* PhotoBrowserAnimation.swift */; };
 		1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299888128114F3800E1CDE7 /* AppDelegate.swift */; };
 		1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1299888A28114F3900E1CDE7 /* Assets.xcassets */; };
 		12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12998895281168B800E1CDE7 /* LaunchScreen.storyboard */; };
@@ -69,6 +70,7 @@
 		12958C7928212BE300310D41 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		12958C7B2821351A00310D41 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		12958C7D2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCollectionViewCell.swift; sourceTree = "<group>"; };
+		12958C852822266D00310D41 /* PhotoBrowserAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserAnimation.swift; sourceTree = "<group>"; };
 		1299887E28114F3800E1CDE7 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1299888128114F3800E1CDE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1299888A28114F3900E1CDE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				12958C7928212BE300310D41 /* PhotoBrowserViewController.swift */,
 				12958C7D2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift */,
+				12958C852822266D00310D41 /* PhotoBrowserAnimation.swift */,
 			);
 			path = PhotoViewer;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12958C862822266D00310D41 /* PhotoBrowserAnimation.swift in Sources */,
 				129989592813DA7900E1CDE7 /* OAuthViewController.swift in Sources */,
 				129988A12811826500E1CDE7 /* MainViewController.swift in Sources */,
 				1299888228114F3800E1CDE7 /* AppDelegate.swift in Sources */,

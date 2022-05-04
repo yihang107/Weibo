@@ -22,6 +22,7 @@ class MainViewController: UITabBarController {
         } else {
             vc = OAuthViewController()
         }
+        vc.modalPresentationStyle = .fullScreen
         present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
         
     }

@@ -36,10 +36,11 @@ class HomeViewController: VisitorViewController {
             guard let urls = n.userInfo?[WBStatusSelectedPhotoURLsKey] as? [URL] else {
                 return
             }
-            print(indexPath)
-            print(urls)
-            
+//            print(indexPath)
+//            print(urls)
             let vc = PhotoBrowserViewController(urls: urls, indexPath: indexPath)
+            vc.modalPresentationStyle = .custom
+            vc.transitioningDelegate = self?.photoBrowserAnimation
             self?.present(vc, animated: true, completion: nil)
         }
     }
@@ -92,6 +93,9 @@ class HomeViewController: VisitorViewController {
         let indivator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         return indivator
     }()
+    
+    /// 照片查看转场动画代理
+    private lazy var photoBrowserAnimation: PhotoBrowserAnimation = PhotoBrowserAnimation()
 }
 
 // MARK: -数据源方法
