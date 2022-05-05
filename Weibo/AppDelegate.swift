@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        SQLiteManager.sharedManager
         return true
     }
     

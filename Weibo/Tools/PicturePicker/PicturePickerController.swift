@@ -103,7 +103,7 @@ extension  PicturePickerController: PicturePickerCellDelegate{
  */
 extension PicturePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print(info)
+//        print(info)
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         let scaleImage = image.scaleToWidth(width: 600)
         if selectedIndex >= pictures.count {

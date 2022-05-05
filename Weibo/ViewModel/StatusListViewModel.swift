@@ -19,29 +19,15 @@ class StatusListViewModel {
         let since_id = isPullup ? 0 : statusList.first?.status.id ?? 0
         // 上拉刷新
         let max_id = isPullup ? statusList.last?.status.id  ?? 0 : 0
-        YYHNetworkTools.sharedTools.loadStatus(since_id: since_id, max_id: max_id) { result, error in
-            if error != nil {
-                print("主页微博数据请求出错")
-                print(error!)
+        
+        // 获取数据 从本地缓存或者网络
+        StatusDAL.loadStatus(since_id: since_id, max_id: max_id) { array in
+            if array == nil {
                 finished(false)
-                return
-            }
-            
-            print(result!)
-            guard let newResult = result as? [String: Any] else{
-                print("数据格式错误")
-                finished(false)
-                return
-            }
-            
-            guard let array = newResult["statuses"] as? [[String: AnyObject]] else {
-                print("数据格式错误")
-                finished(false)
-                return
             }
             
             var dataList = [StatusViewModel]()
-            for dic in array {
+            for dic in array! {
                 dataList.append(StatusViewModel(status: Status(dict: dic)))
             }
             
@@ -64,7 +50,7 @@ class StatusListViewModel {
         let group = DispatchGroup()
         // 遍历
         for vm in dataList {
-            print(vm)
+//            print(vm)
             if vm.thumbnailUrls?.count != 1 {
                 continue
             }

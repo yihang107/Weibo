@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12037BF92823BA380019B311 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12037BF82823BA380019B311 /* SQLiteManager.swift */; };
 		12037BFC2823BA7F0019B311 /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 12037BFB2823BA7F0019B311 /* db.sql */; };
+		12037BFE2823BEC60019B311 /* StatusDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12037BFD2823BEC60019B311 /* StatusDAL.swift */; };
 		12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */; };
 		12958B942816513200310D41 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B932816513200310D41 /* WelcomeViewController.swift */; };
 		12958B96281697C400310D41 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B95281697C400310D41 /* Status.swift */; };
@@ -56,6 +57,7 @@
 		12037BF72823B9FA0019B311 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		12037BF82823BA380019B311 /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
 		12037BFB2823BA7F0019B311 /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
+		12037BFD2823BEC60019B311 /* StatusDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDAL.swift; sourceTree = "<group>"; };
 		12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		12958B932816513200310D41 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		12958B95281697C400310D41 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				1299895C2815413000E1CDE7 /* UserAccountViewModel.swift */,
 				12958B972816A72200310D41 /* StatusListViewModel.swift */,
 				12958B9B2816B2EB00310D41 /* StatusViewModel.swift */,
+				12037BFD2823BEC60019B311 /* StatusDAL.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				12958BA12816B54B00310D41 /* StatusCellTopView.swift in Sources */,
 				12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */,
 				12037BF92823BA380019B311 /* SQLiteManager.swift in Sources */,
+				12037BFE2823BEC60019B311 /* StatusDAL.swift in Sources */,
 				12958C772821068E00310D41 /* UIImage+Extension.swift in Sources */,
 				12958B96281697C400310D41 /* Status.swift in Sources */,
 				12958C7E2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift in Sources */,
