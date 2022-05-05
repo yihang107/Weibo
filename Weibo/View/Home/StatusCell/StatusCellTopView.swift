@@ -17,7 +17,15 @@ class StatusCellTopView: UIView {
         didSet {
             namelabel.text = viewModel?.status.user?.screen_name
             iconView.sd_setImage(with: viewModel?.userProfileUrl, placeholderImage: viewModel?.userDefaultIconView)
+            // Thu May 05 19:24:27 +0800 2022
+            // EEE MMM dd HH mm ss zzz yyyy
             timeLabel.text = viewModel?.status.created_at
+//            let df = DateFormatter()
+//            df.locale = Locale(identifier: "en")
+//            df.dateFormat = "EEE MMM dd HH:mm:ss zzz yyyy"
+//            let date = df.date(from: timeLabel.text!)
+//            print(df.locale)
+//            print(date)
         }
     }
     

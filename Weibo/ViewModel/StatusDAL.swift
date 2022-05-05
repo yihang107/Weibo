@@ -17,7 +17,7 @@ class StatusDAL {
         let date = Date(timeIntervalSinceNow: -maxCacheDateTime)
 //        print(date)
         let df = DateFormatter()
-        df.locale = Locale(identifier: "cn")
+        df.locale = Locale(identifier: "zh_Hans_CN")
         df.dateFormat = "yyyy-MM-dd HH:mm:ss"
         // 获取日期结果
         let dateStr = df.string(from: date)
