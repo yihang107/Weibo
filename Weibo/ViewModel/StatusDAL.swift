@@ -7,8 +7,29 @@
 
 import Foundation
 
+// 最大缓存时间
+private let maxCacheDateTime: TimeInterval = 7 * 24 * 60 * 60
+
 // 目标: 专门负责处理本地的 SQLite和网络数据
 class StatusDAL {
+    /// 清理早于过期日期的缓存数据
+    class func clearDataCache() {
+        let date = Date(timeIntervalSinceNow: -maxCacheDateTime)
+//        print(date)
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "cn")
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        // 获取日期结果
+        let dateStr = df.string(from: date)
+//        print(dateStr)
+        let sql = "DELETE FROM T_Status WHERE createTime < ?;"
+        SQLiteManager.sharedManager.queue.inDatabase { db in
+            if db.executeUpdate(sql, withArgumentsIn: [dateStr]) {
+                print("删除了\(db.changes)条缓存数据")
+            }
+        }
+    }
+    
     /// 加载微博数据
     class func loadStatus(since_id: Int, max_id: Int, finished: @escaping(_ array: [[String: Any]]?)->()) {
         // 检查本地是否存在缓存数据
@@ -76,10 +97,10 @@ class StatusDAL {
         for dic in array {
             let jsonData = dic["status"] as! Data
             let result  = try! JSONSerialization.jsonObject(with: jsonData, options: [])
-            print(result)
+//            print(result)
             arrayM.append(result as! [String : Any])
         }
-        print(arrayM)
+//        print(arrayM)
         
         return arrayM
     }

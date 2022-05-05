@@ -34,6 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        /// 清除数据库缓存
+        StatusDAL.clearDataCache()
+
+    }
+    
     deinit {
         // 注销指定通知
         NotificationCenter.default.removeObserver(self, // 监听者
