@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12037BF92823BA380019B311 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12037BF82823BA380019B311 /* SQLiteManager.swift */; };
+		12037BFC2823BA7F0019B311 /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 12037BFB2823BA7F0019B311 /* db.sql */; };
 		12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */; };
 		12958B942816513200310D41 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B932816513200310D41 /* WelcomeViewController.swift */; };
 		12958B96281697C400310D41 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B95281697C400310D41 /* Status.swift */; };
@@ -50,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12037BF62823B94D0019B311 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
+		12037BF72823B9FA0019B311 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		12037BF82823BA380019B311 /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
+		12037BFB2823BA7F0019B311 /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
 		12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		12958B932816513200310D41 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		12958B95281697C400310D41 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -108,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12037BFA2823BA590019B311 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				12037BFB2823BA7F0019B311 /* db.sql */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
 		12958B902816331900310D41 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,11 +200,13 @@
 		1299888028114F3800E1CDE7 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				12037BFA2823BA590019B311 /* resource */,
 				1299889A2811810F00E1CDE7 /* Tools */,
 				12998899281180FB00E1CDE7 /* Model */,
 				1299889828117F7500E1CDE7 /* ViewModel */,
 				1299889728117F6100E1CDE7 /* View */,
 				1299888128114F3800E1CDE7 /* AppDelegate.swift */,
+				12037BF62823B94D0019B311 /* Weibo-Bridge.h */,
 				1299888A28114F3900E1CDE7 /* Assets.xcassets */,
 				1299888F28114F3900E1CDE7 /* Info.plist */,
 				12998895281168B800E1CDE7 /* LaunchScreen.storyboard */,
@@ -240,6 +256,7 @@
 				129988AA281260F600E1CDE7 /* Extension */,
 				129988DB2812BCF600E1CDE7 /* Common.swift */,
 				129989552813D8F300E1CDE7 /* YYHNetworkTools.swift */,
+				12037BF82823BA380019B311 /* SQLiteManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -329,6 +346,7 @@
 		9F52843FA4316B90E15C4A58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12037BF72823B9FA0019B311 /* libsqlite3.tbd */,
 				FDF28E929CE3B335C1673E92 /* Pods_Weibo.framework */,
 			);
 			name = Frameworks;
@@ -396,6 +414,7 @@
 			files = (
 				12958BF028182AB300310D41 /* WBRefreshVIew.xib in Resources */,
 				12998896281168B800E1CDE7 /* LaunchScreen.storyboard in Resources */,
+				12037BFC2823BA7F0019B311 /* db.sql in Resources */,
 				1299888B28114F3900E1CDE7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +498,7 @@
 				12958BA52817855000310D41 /* StatusPictureView.swift in Sources */,
 				12958BA12816B54B00310D41 /* StatusCellTopView.swift in Sources */,
 				12958BC72817F45F00310D41 /* StatusRetweetedCell.swift in Sources */,
+				12037BF92823BA380019B311 /* SQLiteManager.swift in Sources */,
 				12958C772821068E00310D41 /* UIImage+Extension.swift in Sources */,
 				12958B96281697C400310D41 /* Status.swift in Sources */,
 				12958C7E2821369A00310D41 /* PhotoBrowserCollectionViewCell.swift in Sources */,
@@ -634,6 +654,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -666,6 +687,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

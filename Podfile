@@ -10,4 +10,5 @@ pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
 pod 'SnapKit'
+pod 'FMDB'
 end

@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self?.window?.rootViewController = vc
             
         }
+        
+        SQLiteManager.sharedManager
         return true
     }
     
