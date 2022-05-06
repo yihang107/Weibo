@@ -95,6 +95,15 @@ extension YYHNetworkTools {
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         tokenRequest(method: NetworkRequestMethod.GET, URLString: urlString, parameters: params, finished: finished)
     }
+    
+    /// 返回单条微博的URL
+    func urlForSingleStatus(status_id: Int) -> URL {
+        var urlString = "http://api.weibo.com/2/statuses/go?"
+        urlString += "?accessToken=" + UserAccountViewModel.sharedUserAccount.accessToken!
+        urlString += "&uid=\(UserAccountViewModel.sharedUserAccount.account?.uid! ?? "")"
+        urlString += "&id=\(status_id)"
+        return URL(string: urlString)!
+    }
 }
 
 // MARK: - 用户相关方法

@@ -21,7 +21,7 @@ class HomeViewController: VisitorViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if !UserAccountViewModel.sharedUserAccount.userLogin {
-            visitorView?.setupInfo(imageName: "visitor_message", title: "关注一些人, 回这里看看有什么惊喜")
+//            visitorView?.setupInfo(imageName: "visitor_message", title: "关注一些人, 回这里看看有什么惊喜")
             return
         }
         prepareTableView()
@@ -165,6 +165,9 @@ extension HomeViewController {
 extension HomeViewController{
     /// 选中微博
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vm = listViewModel.statusList[indexPath.row]
+        let status_id = vm.status.id
+        let vc = StatusViewController(statusId: status_id)
+        present(vc, animated: true, completion: nil)
     }
 }

@@ -10,6 +10,7 @@
 		12037BF92823BA380019B311 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12037BF82823BA380019B311 /* SQLiteManager.swift */; };
 		12037BFC2823BA7F0019B311 /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 12037BFB2823BA7F0019B311 /* db.sql */; };
 		12037BFE2823BEC60019B311 /* StatusDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12037BFD2823BEC60019B311 /* StatusDAL.swift */; };
+		12037C00282548460019B311 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12037BFF282548460019B311 /* StatusViewController.swift */; };
 		12958B92281633B600310D41 /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */; };
 		12958B942816513200310D41 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B932816513200310D41 /* WelcomeViewController.swift */; };
 		12958B96281697C400310D41 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12958B95281697C400310D41 /* Status.swift */; };
@@ -58,6 +59,7 @@
 		12037BF82823BA380019B311 /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
 		12037BFB2823BA7F0019B311 /* db.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
 		12037BFD2823BEC60019B311 /* StatusDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDAL.swift; sourceTree = "<group>"; };
+		12037BFF282548460019B311 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		12958B91281633B600310D41 /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		12958B932816513200310D41 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		12958B95281697C400310D41 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				12958BEA281828D400310D41 /* RefreshView */,
 				12958B9D2816B4DA00310D41 /* StatusCell */,
 				129988A2281182A900E1CDE7 /* HomeViewController.swift */,
+				12037BFF282548460019B311 /* StatusViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				129988DA2812B1A200E1CDE7 /* UIImageView+Extension.swift in Sources */,
 				129988B128127B6700E1CDE7 /* VisitorView.swift in Sources */,
 				12958C282819230200310D41 /* ComposeViewController.swift in Sources */,
+				12037C00282548460019B311 /* StatusViewController.swift in Sources */,
 				129989562813D8F300E1CDE7 /* YYHNetworkTools.swift in Sources */,
 				12958BA32816B56500310D41 /* StatusCellBottomView.swift in Sources */,
 				129988A5281182C900E1CDE7 /* MessageViewController.swift in Sources */,
