@@ -1,9 +1,7 @@
 # Weibo
 practice of swift 5.5
 
----
-highlight: a11y-dark
----
+
 * 原教学视频地址 [新浪微博项目_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1xJ411T7Vf?spm_id_from=333.999.0.0)
 * 视频是2015年的某培训机构的教学视频, 当时应该是在用swift3, 现在swift已经到5.5了
 * 虽然Weibo这个项目因为和培训机构挂钩常常为人所不齿, 但耐心跟着视频学还是能有所收获
